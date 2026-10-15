@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/owner-boundary-audit/verify.py"
+      ],
+      "expected": "PASS_PR626_NEXT_TOUCH_BOUNDARY_AUDIT",
+      "inspect": "Identify why the timing-only omission passes but the full production controller still rejects it.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one current supplier obligation and trace whether its acceptance depends on an independent check.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Do the selected frontier 1094 certificate's 47 named outer slacks follow from the receipt check that only requires 47 positive rationals?",
+  "scope_change_reason": "The card asks for one current supplier obligation and one semantically invalid fixture. The obligation is the selected assembly's named outer map, including its conservative twin and four published controls. This is not the historical PR626 timing audit.",
+  "bottleneck_link": "The complex primitive binds the selected kappa. These outer inequalities are the finite acceptance test that turns the two primitive endpoints into that kappa. The receipt predicate does not prove them; the identities do, for this pinned certificate, without changing kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after both outer maps, both kappa floors, the four named controls, and the two positive fixtures. No parameter search and no cold circuit replay.",
+  "outcome": "completed",
+  "evidence": "PASS_SELECTED_OUTER_SLACK_AUDIT: 47 native and 47 conservative slacks match ASSEMBLY.json exactly; both kappa floors match; next_grid, zero_eta, zero_beta and unit_beta each make a named slack nonpositive; a 47-key positive dummy and a single positive slack swap pass the receipt predicate and fail the identities.",
+  "author": "AI-assisted audit",
+  "ai_assistance": "Substantial model assistance reimplemented the retained balanced-assembly formulas, compared them with the selected certificate, and prepared this package. No human peer review is claimed.",
+  "open_questions": [
+    {
+      "question": "Does any selected replay path accept ASSEMBLY.json without executing the assembly engine?",
+      "why_it_matters": "The receipt predicate alone accepts a dummy positive map, so the named identities are enforced only where the engine actually runs.",
+      "first_step": "Trace every writer and reader of outer in make frontier1094-verify and test whether a substituted map can pass after the engine call is skipped.",
+      "blocked_by": "This package does not rebuild the cold replay or modify the selected verifier."
+    }
+  ]
+}
