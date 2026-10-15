@@ -59,3 +59,9 @@ New research packages should include **Open next questions** and can use the
 Optional workflow feedback goes in the PR or the
 [feedback discussion](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200).
 Link it once; no separate session report is required.
+
+## Cursor Cloud specific instructions
+
+Cloud `install` adds Boost headers (`libboost-dev`), points the `c++` alternative at `g++`, and installs `research/e8-bit-p111-tuned/requirements.txt` (numpy, sympy, scipy) into the user site. The image default `c++` is Clang, which selects GCC 14 libstdc++ headers that are not installed; several checks invoke `c++` directly or pass `-fopenmp`. There is no boot-time service.
+
+`make selected-record-check` checks the selected record, kappa, and proof hashes. The cold replay in `certificates/selected-result.json` is `make frontier1094-verify`. Leave `PYTHONOPTIMIZE` unset so assertions stay enabled. Do not run artifact-regenerating `make verify-*` groups concurrently in one worktree.
