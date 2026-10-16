@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For the empty entrance and the ordered normal-1 basis (2,4,8,16,32,64,128,256), do the pinned canonical-frame circuit and lower_child monomials satisfy T_U = L (C8 tensor id) R on C^256 tensor C^2, with T_empty = id, including global phase?",
+  "scope_change_reason": "The card allows one theorem-to-certificate binding. The binding is narrowed to the single cold normal-1 chart named by the existing all-511 handoff, instead of another hyperplane-end arithmetic formalization or a 511-case rerun.",
+  "bottleneck_link": "exact_cold is a conditional interface step for cold hyperplane ends. Discharging its hypotheses for one real chart does not change kappa; it removes one external arithmetic assumption from that interface.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the one normal-1 identity, its source binding, and five mutation controls. Do not search the other 510 hyperplanes and do not start a Lean build.",
+  "outcome": "completed",
+  "evidence": "verify.py checks all 512 basis columns and five rejections. PASS_COLD_NORMAL1_C256_BRIDGE. Lean was not run. Discussion posting was forbidden (addDiscussionComment FORBIDDEN) and was not retried.",
+  "author": "Donated research session",
+  "ai_assistance": "Substantial AI assistance was used to derive the coordinate identity, write the verifier, and prepare the notes. No coding-agent product is named. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can the hardcoded normal-1 gate list and monomials be named in Lean so exact_cold applies with no external arithmetic?",
+      "why_it_matters": "A kernel-checked instance would discharge one cold hypothesis inside the proof assistant and fix the 256-by-2 tensor split an adapter must use.",
+      "first_step": "Add a theorem whose gates and monomials are the README tables, and check it with decide +kernel after changing the spectator split from two qubits to one.",
+      "blocked_by": "Exact.lean's operators use C^128 tensor C^4. This package does not run Lake or Mathlib."
+    }
+  ]
+}
