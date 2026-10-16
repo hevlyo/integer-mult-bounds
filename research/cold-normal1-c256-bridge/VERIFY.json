@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/hyperplane-end-lean/HyperplaneEnd/Multi.lean",
+    "research/split-centres-global/vendor/clifford_exact.py"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Rank-8 normal-1 chart, exact_cold hypotheses on all 512 columns, closed form of eight C gates, and five semantic rejections."
+    }
+  ]
+}
