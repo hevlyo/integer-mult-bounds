@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/coordinated-frames-and-entrance-banks/arithmetic/interval_moment.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned degree-12 majorant: series lower bound, geometric tail on (0, 14), false-accept bills at 1/5 and 15, and the coded guard rejecting 1/4, 13 and 15."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same majorant audit with assert-stripping enabled, so a checker that hid its tests under assert would fail closed."
+    }
+  ]
+}
