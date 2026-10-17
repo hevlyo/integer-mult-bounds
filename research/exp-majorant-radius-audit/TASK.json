@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For the pinned degree-12 geometric tail U(x) = T_12(x) + x^13/(13!(1-x/14)), determine the rational arguments where U upper-bounds exp, and exhibit one-term bills that this expression or its tail-free truncation falsely accepts. The coded guard remains the strict cut at 1/4.",
+  "scope_change_reason": "The card permits one precision implication. The audited implication is the moment engine's exponential-majorant guard, not a new all-size compiler theorem and not another finite supplier replay. The D/E diagnostic and the assembly 1/32-domain examples are different obligations and were not rerun.",
+  "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations. This enclosure is one of those obligations: a tail-free or past-radius upper bound can accept a one-term bill whose series lower bound is already one, before any supplier histogram is adopted.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the rational witnesses 0, 1/5, 1/4, 13, 1399/100, 14 and 15, the inductive rising-product step, and the pinned engine's accept/reject behavior. Do not reprice the selected histogram or edit the production guard.",
+  "outcome": "completed",
+  "evidence": "verify.py prints PASS_EXP_MAJORANT_RADIUS_AUDIT. At x=1/5 the tail-free weight accepts and both U and the guarded engine reject acceptance. At x=15, U lies strictly below T_12, so the unguarded formula accepts, while exp_interval rejects. The engine also rejects the still-valid arguments 1/4, 13 and 1399/100.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance drafted the statement, the rational checker and the package notes. No agent product is named.",
+  "open_questions": [
+    {
+      "question": "Can a fixed cap c with 1/4 <= c < 14 replace the coded exp_interval guard and still separate the selected complex moment at its recorded endpoint?",
+      "why_it_matters": "The majorant radius is 14, so the coded 1/4 cut is sufficient but not sharp. Whether any selected child needs the extra room decides if widening the guard can change a moment search.",
+      "first_step": "Evaluate a*log(m/r) for the selected complex histogram at the recorded endpoint and compare that upper bound with 1/4 and with c=1.",
+      "blocked_by": "This package does not load that histogram or rerun the logarithm enclosure. A wider guard is not a new supplier, and saving_grid still stops near 1/32."
+    },
+    {
+      "question": "How many extra Taylor terms make an outward enclosure prove that the inside bill at x=1/5 exceeds one, rather than only overlap one?",
+      "why_it_matters": "The guarded engine correctly refuses to accept this failing bill and still does not certify the rejection, because its lower bound stays at most T_12.",
+      "first_step": "Increase the partial sum until its weight-one threshold sits strictly below the outward lower bound of T_12(1/5).",
+      "blocked_by": "That is a different enclosure and should stay independent of the production moment engine."
+    }
+  ],
+  "discussion_posting": "not attempted; upstream discussion writes are forbidden for this account and were not retried"
+}
