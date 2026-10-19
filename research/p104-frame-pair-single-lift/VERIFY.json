@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Pinned frame-pair Gram identity, 511-functional census, 3272 parity coranks, weight-4 quotients, cost-56 equality fixtures, and mutation controls. The all-real bound remains the written proof."
+    }
+  ]
+}
