@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On one pinned admissible P104 frame-pair decoder, can one added real total with those eight reader columns fixed lower the label-pairing copy sum below 56?",
+  "scope_change_reason": "The card allows one specified overcomplete family with exact labels and supports. This family is a single real source correction on the first admissible frame-pair decoder, exact on all 104 live pairs, with ordinary transpose. It is not the eight-term all-pairs search inside its proved scope and not the coordinate P112 single lift.",
+  "bottleneck_link": "The complex side is binding, and 56/104 is the best copy ratio in the eight-term theorem. One added total is the smallest overcomplete relaxation of a decoder that attains that ratio. With frames, restoration and hosting charged zero, the copy sum still cannot fall below 56, so this relaxation does not improve that copied-information term.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once this pinned decoder's single-lift copy sum is proved, or once an explicit real pair (a, z) with copy sum below 56 is found. Do not search a second frame or a second added total in this session.",
+  "outcome": "negative-result",
+  "evidence": "verify.py checks the Gram identity, the 511-functional census, all 3272 sign-pattern coranks, the eight weight-4 quotients, equality fixtures at cost 56, and failure controls. The all-real bound is the rank-nullity argument in PROOF.md.",
+  "author": "hevlyo",
+  "ai_assistance": "Substantial AI assistance was used to isolate this single-lift question, adapt the parity argument, and write the checker and notes.",
+  "open_questions": [
+    {
+      "question": "Does the same copy floor hold for every admissible frame-pair decoder, or can another clique admit a ninth term whose copy sum is below 56?",
+      "why_it_matters": "A single frame with a ninth term below 56 would be a new copy budget at the ratio-optimal puncture. The present obstruction is pinned to one clique.",
+      "first_step": "Rerun the 511-functional census and the 3272-pattern corank check on the next admissible clique in the same enumeration.",
+      "blocked_by": "The certificate records only the first admissible clique. The same script shape applies, but the census for the other 895 frames is not yet computed."
+    },
+    {
+      "question": "Can two added totals, with both new readers kept inside the present eight-dimensional reader span, lower the copy sum below 56?",
+      "why_it_matters": "The one-total identity is the smallest overcomplete relaxation. A second free column can evade the one-active-reader subadditivity step.",
+      "first_step": "Write the two-correction identity and test the parity map of its two new source columns on this same pinned reader matrix.",
+      "blocked_by": "The second source is an unconstrained column, so the sign equations used here no longer close by themselves."
+    }
+  ]
+}
