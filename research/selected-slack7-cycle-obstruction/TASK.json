@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "selected-packing",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "selected-packing",
+    "question": "Is there a genuinely unsearched, explicitly bounded improvement to the selected packing?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/heterogeneous-owner-assembly/README.md"
+    ],
+    "methods": [
+      "Search a named unclaimed canonical candidate domain with a reproducible partition.",
+      "Prove a stronger scoped relaxation or exact optimum for one named residual subproblem."
+    ],
+    "acceptance_gate": "Check live PR overlap first, price both suppliers and distinguish a search best from an optimum.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Locate the selected packing source in the review and check live PRs for the same residual problem.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Define an unclaimed canonical domain and a favorable bound before starting a new search.",
+    "bottleneck_link": "An actual paid-profile gain can improve the frontier up to the other supplier cap.",
+    "allowed_variations": [
+      "One bounded residual packing instance or exact relaxation."
+    ],
+    "scope_change_triggers": [
+      "Rerunning an existing search with only a different seed as a separate mathematical contribution."
+    ],
+    "overlap_terms": [
+      "T16",
+      "owner exchange",
+      "packing"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the selected PR1094 owner map, every directed three-role cycle on three distinct occupied bins that touches a slack-7 bin and strictly majorizes the slack triple fails the selected source-event window list.",
+  "scope_change_reason": "The card allows one bounded residual of the selected packing. The full T16 search and the single rank transition {0,1,7}->{0,0,8} are already published. This census is the remaining slack-7-touching majorization class, including that transition as a recomputed control.",
+  "bottleneck_link": "A legal idle-histogram change is what could raise the binding complex primitive. This residual has 32,981,939 capacity-feasible uniform improvements and zero window-legal ones, so it contributes no paid-profile or kappa gain.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the complete slack-7-anchored three-bin census, its incomparable companion, and the synthetic window control. Do not open a slack-3 anchor search in this session.",
+  "outcome": "negative-result",
+  "evidence": "PASS_SELECTED_SLACK7_CYCLE_OBSTRUCTION improving_patterns=77 capacity=32981939 window=0 same_call=0 known=17567+4319 incomparable_patterns=20 incomparable_capacity=325142 incomparable_window=0 synthetic_window_hits=1 roles=69120 no_new_kappa",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used for the census design, exact arithmetic, implementation, checks, and write-up.",
+  "open_questions": [
+    {
+      "question": "Does any directed three-bin cycle that avoids every slack-7 bin strictly majorize its slack triple and land inside the selected source-event windows?",
+      "why_it_matters": "The complex primitive still binds. A window-legal majorizing cycle outside this anchor would be a concrete idle-histogram improvement to price.",
+      "first_step": "Repeat this majorization join with the anchor restricted to the 754 roles in slack-3 bins, and reject any triple that also touches slack 7 so the domains stay disjoint.",
+      "blocked_by": "Slack-3 class products are much larger than the slack-7 join, and three-component transitions that are not majorization-ordered still need a separate exact sign rule."
+    }
+  ]
+}
