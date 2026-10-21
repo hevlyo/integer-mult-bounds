@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "With the eight P112 coordinate readers fixed, does one extra term that is required to match X X^T only on the E-graph have pairing-rank copy cost at least 64?",
+  "scope_change_reason": "The card asks whether some masked or overcomplete decoder improves the full moment budget. This package keeps the coordinate readers, weakens all-pairs exactness to the E-graph, and prices the one extra term by pairing rank. It does not repeat the excluded eight-term all-pairs search.",
+  "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side. This masked one-term family does not lower the copy-rank sum, so it does not move that side.",
+  "budget_minutes": 60,
+  "stop_rule": "The finite census and the one-term normal form are complete. The run stops on that negative result rather than on a timeout.",
+  "outcome": "negative-result",
+  "evidence": "research/p112-masked-fixed-reader-lift/verify.py prints PASS_P112_MASKED_FIXED_READER_LIFT. PROOF.md records the normal form, the reduction to the pinned classical floor, and the self-contained parallel line.",
+  "author": "hevlyo",
+  "ai_assistance": "Substantial AI assistance was used for the normal form, the finite census, the verifier, and the write-up.",
+  "open_questions": [
+    {
+      "question": "With the same eight coordinate readers fixed, can two extra E-graph terms have pairing-rank sum below 64?",
+      "why_it_matters": "A second reader can carry a second vector on a second codeword. The one-term intersection argument does not forbid that, and a drop would be a masked decoder outside this theorem.",
+      "first_step": "Fix two odd-disjoint star codewords, assign each a reader vector, and compute the pairing-rank sum on that support.",
+      "blocked_by": "Rank-8 agreement of E-neighborhoods forces one vector only inside a single reader's support."
+    },
+    {
+      "question": "Does the floor survive if one coordinate reader is replaced instead of being held fixed while a term is added?",
+      "why_it_matters": "Uniqueness of the neighborhood vector uses the fixed columns of X. Replacing a reader is a different masked family and could change the copy sum.",
+      "first_step": "Delete one star, let that reader be an arbitrary real vector, and rerun the neighborhood rank count.",
+      "blocked_by": "The coordinate frame is an input to the normal form, not a consequence of it."
+    }
+  ]
+}
