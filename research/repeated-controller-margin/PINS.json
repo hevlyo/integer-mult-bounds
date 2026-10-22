@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "upstream_repository": "CrocSwap/integer-mult-bounds",
+  "predecessor_pr": 4623,
+  "predecessor_head": "fd5d3be12b9d6ee92c8fa089d95bd529c3236563",
+  "complementary_audit_pr": 4625,
+  "files": [
+    {
+      "package_path": "inputs/joint-helper-lattice-RESULT.json",
+      "upstream_path": "research/joint-helper-lattice/RESULT.json",
+      "sha256": "c7b2388f6511c19976b337d8c8ac374610af616866a249d75dace704eb5d9e21",
+      "bytes": 9199
+    },
+    {
+      "package_path": "inputs/BIT-CONTROLLER.json",
+      "upstream_path": "research/query-thinned-controllers/BIT-CONTROLLER.json",
+      "sha256": "39ac84fb848b908f7ba051fae4556d507900c421dc5d23501a9c0cb1d61fd08d",
+      "bytes": 23753
+    }
+  ],
+  "predecessor_text_sha256": {
+    "research/controller-border-interface/BUDGET.md": "10c878e928d390c0101900a60b8ab5ec51d62d514c9ad214cd74ca4733389dbd",
+    "research/controller-border-interface/budget.py": "f91a3de9db55dcfd59bde615eb7049d8a938ee11399a5ceb47bf77d95ed1578a"
+  },
+  "note": "These bytes were copied from the predecessor head and are not present on this checkout's main. budget.py was not executed or imported."
+}

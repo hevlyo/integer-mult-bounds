@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/repeated-controller-margin/PINS.json",
+    "research/repeated-controller-margin/inputs/BIT-CONTROLLER.json",
+    "research/repeated-controller-margin/inputs/joint-helper-lattice-RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Rebuild both local invoices, certify the K>=2 rank-mass margins and separator hypothesis, and reject three semantic controls."
+    }
+  ]
+}
