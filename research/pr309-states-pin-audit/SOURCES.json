@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "files": [
+    {
+      "path": "certificates/selected-result.json",
+      "usage": "provenance",
+      "git_blob": "ae6a99f28aa468649eb66a361e764d769363bf11",
+      "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
+    },
+    {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "c05fafaa25ba95b2d5af86b1800427198e3d20eb",
+      "sha256": "89b5928bc92c81e2647b6d702a7ad85a6795b8f44e2eb267b2ff3145d8f2b2ce"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/FILESYSTEM-COMPRESSION.json",
+      "usage": "input",
+      "git_blob": "370e9802c44d94b4aaa3eb11a0a8f50b8f7ae136",
+      "sha256": "73167eee49917c2a6c21270a578d4709ead12df1632f3fd64a84aead49101258"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/PR309-ACTUAL-STATES.json.gz",
+      "usage": "input",
+      "git_blob": "64d037307b2babf843d6b3eb3b6211967f40efc8",
+      "sha256": "8ff98a35f54f02cd8d0e202b64ba2c74de8fa96119a39f5c5bd8927ff5c3efc4"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/PR309-DIAGNOSTIC.json",
+      "usage": "input",
+      "git_blob": "96c7c1b78c47cdc0775c67309db975a9cc38ed8e",
+      "sha256": "ec1a99f87457c1a0768cd13a2ab49c878295f13b4113bf5bdcde9382e96ab4bd"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/PR309-RETIMING51-PIN.json.gz",
+      "usage": "input",
+      "git_blob": "ef5465b8d40968a31d83d437ddbc42ae613471da",
+      "sha256": "06cb89b7c39816fa966a640885d3d4ca123e706ba24c676f6d4adb0f9ebc2e02"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/regenerated/pr309-disk-retry-outputs/base-replay/rank-modular-replay/final/COHORT249-FINAL.json.gz",
+      "usage": "input",
+      "git_blob": "71852d997e4bab351ff12294868a72374aa410c5",
+      "sha256": "f735b6948d365bd9597a7abeb5e05442fe09362b95a589dbc1c03b5fcc607cb3"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/regenerated/pr309-disk-retry-outputs/base-replay/rank-modular-replay/final/COHORT249-FRAMES.json.gz",
+      "usage": "input",
+      "git_blob": "49d98e7a5a8dddf0c370b0c5a3f98a4812db0963",
+      "sha256": "7547629a41e191d35a7fa832c91014b1eb60f943e3ec8a48a6334f5623ad7303"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/regenerated/pr309-disk-retry-outputs/base-replay/rank-modular-replay/final/COHORT249-INITIAL.json.gz",
+      "usage": "input",
+      "git_blob": "8422a04c560e4e83bfb0b91caefde3b85e8b4ce9",
+      "sha256": "9fc946f87970e7ab5ffa33f176960fa58e34b6773e647135097a8abbfc4d0596"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/regenerated/pr309-disk-retry-outputs/base-replay/rank-modular-replay/final/COHORT249-REPLAY.json.gz",
+      "usage": "input",
+      "git_blob": "cd56b18637f67de2d0cb27ff7cb7d57346d7f533",
+      "sha256": "4e70f316b6f0784c14b4e6e431b70e781cf30f9000bc567e338aa6bc4dc7986a"
+    }
+  ]
+}

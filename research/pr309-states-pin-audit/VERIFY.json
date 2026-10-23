@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-reconciliation-third100-audit/FILESYSTEM-COMPRESSION.json",
+    "research/community-reconciliation-third100-audit/PR309-ACTUAL-STATES.json.gz",
+    "research/community-reconciliation-third100-audit/PR309-DIAGNOSTIC.json",
+    "research/community-reconciliation-third100-audit/PR309-RETIMING51-PIN.json.gz",
+    "research/community-reconciliation-third100-audit/regenerated/pr309-disk-retry-outputs/base-replay/rank-modular-replay/final/COHORT249-FINAL.json.gz",
+    "research/community-reconciliation-third100-audit/regenerated/pr309-disk-retry-outputs/base-replay/rank-modular-replay/final/COHORT249-FRAMES.json.gz",
+    "research/community-reconciliation-third100-audit/regenerated/pr309-disk-retry-outputs/base-replay/rank-modular-replay/final/COHORT249-INITIAL.json.gz",
+    "research/community-reconciliation-third100-audit/regenerated/pr309-disk-retry-outputs/base-replay/rank-modular-replay/final/COHORT249-REPLAY.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Recompute the retained states digest; reject CRLF, lexical-initial, and sort_keys reproductions of the pin; require three cohort files to match after LF-to-CRLF and to fail after a one-byte mutation; count 1915 ZERO-versus-frame initial disagreements and reject a one-value repair; require the normalized replay digest and the recorded kernel states digests."
+    }
+  ]
+}

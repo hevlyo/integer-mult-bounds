@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the retained PR309 inherited-base artifacts, isolate the retiming51 raw 249-states.json pin from the cohort files that match after LF-to-CRLF conversion, and test whether key order or the 1915 source-initial disagreements reproduce that pin.",
+  "scope_change_reason": "The portable-replay card allows one payload-field comparison. This audit keeps that premise and narrows it to the open PR309 retiming51 predecessor pin, using only artifacts already retained by the third-100 reconciliation. It does not repair the pin and does not drop an immutable hash.",
+  "bottleneck_link": "The selected frontier is unchanged. This is a side result about a blocked historical native replay: a raw JSON pin that fails on newline-equivalent cohort files prevents the rest of the PR309 inherited-base and TI replay from being checked.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after one retained-artifact audit of this pin. Do not rerun the native inherited-base replay, do not replace the pin, and do not edit the selected frontier.",
+  "outcome": "negative-result",
+  "evidence": "verify.py reports PASS_PR309_STATES_PIN_NEWLINE_AND_INITIAL_AUDIT. The retained states sha256 is 3348648d9f659ed8c842f9b573ca7da66108a7966268e44d29caebd71bc32781. CRLF conversion, lexical initial order, and sort_keys dumps do not equal pin 208cc9aba1401423ca31a3305a2d2bc9e1778d78323c000bed425f0bf21518d4. Three cohort JSON files match that pin after LF-to-CRLF. states.initial disagrees with the matching cohort initial in exactly 1915 entries, each ZERO on the states side. The normalized replay digest matches. Splicing the cohort initial values back does not reproduce the pin.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used to prepare this audit and checker. Declared without a product name.",
+  "open_questions": [
+    {
+      "question": "What is the exact byte difference between the unreproduced 249-states.json pin 208cc9aba1401423ca31a3305a2d2bc9e1778d78323c000bed425f0bf21518d4 and the retained Linux file?",
+      "why_it_matters": "The inherited-base replay stops before retiming51 and the TI extension. Cohort files and the semantic replay digest already agree, so the remaining blocker is this one raw states file.",
+      "first_step": "Recover the author-side 249-states.json bytes that hash to the pin, or rerun retiming51/compose.py against a semantic states comparison that still rejects a changed ZERO or frame id.",
+      "blocked_by": "The expected states bytes were not retained, and this package does not rerun the native replay. A value diff cannot be computed from the hash alone."
+    }
+  ]
+}
