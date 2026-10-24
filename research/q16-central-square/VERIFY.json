@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Q16 presentation and unique central involution; all 28 rank-one idempotents; augmentation dimensions; exhaustive absence of words of length at most 5 for both triple squares; length-6 coordinate witnesses; x^6 sieve through length 6 and the length-12 word; seven positive and negative controls."
+    }
+  ]
+}

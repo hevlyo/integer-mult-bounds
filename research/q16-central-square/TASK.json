@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write a complete operation alphabet outside one named premise and price a baseline before searching identities.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "In F2[Q16] on exactly three roles, with paid labels {x,y} and all 28 binary rank-one idempotents, the minimum word lengths of diag([x^2]^3) and diag([x^4]^3) are both 6.",
+  "scope_change_reason": "The card allows one specified nonabelian family. The family is the generalized quaternion group of order 16 with relations x^8=e, y^2=x^4 and yxy^{-1}=x^{-1}, charged generators {x,y}, three output roles, and these two triple-square targets. The abelian M3(Q) three-register model is not reused.",
+  "bottleneck_link": "The complex primitive binds, and both identities meet rather than undercut the disjoint bill of 6, so selected kappa is unchanged. The degree-1 relaxation only forces even length and does not decide the targets. This prices a nonabelian generator alphabet outside the three-register obstruction.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once both triple squares have an exact minimum. Do not open a four-role search or a length-8 search for diag([x^6]^3), and do not claim a new kappa.",
+  "outcome": "negative-result",
+  "evidence": "Selector nonce bfe60b39ce1400e38d330c639d8e904a, scope key 7084092dd726e7ba1f2f. Verifier PASS_Q16_CENTRAL_SQUARE: frontiers 2352 and 92374; both minima 6; 799 length-6 prefix matrices for each square, 792 of the central prefixes nondiagonal; x^6 absent through length 6 with upper bound 12. No new kappa. Discussion writes are forbidden for this account and were not retried.",
+  "author": "AI-assisted contributor",
+  "ai_assistance": "Substantial AI assistance was used to build the quaternion multiplication table, search the paid words, and write the package notes.",
+  "open_questions": [
+    {
+      "question": "Is the minimum length of diag([x^6],[x^6],[x^6]) equal to 8, 10, or 12 in this same three-role alphabet?",
+      "why_it_matters": "A length below the disjoint bill of 12 would be a genuine mixing saving. The parity lemma and the length-6 sieve only leave those three candidates.",
+      "first_step": "Meet in the middle at length 8 using the depth-4 frontier obtained by extending the 92374 length-3 matrices by one call.",
+      "blocked_by": "The depth-4 frontier was not built or stored in this run."
+    },
+    {
+      "question": "Can diag([x^4],[x^4],[x^4],[e]) be realized with labels {x,y} and all rank-one idempotents in M4(F2) in fewer than 6 calls?",
+      "why_it_matters": "A restored scratch role is the usual route past a three-role disjoint bill. This package only rules out savings with exactly three roles.",
+      "first_step": "Run a shortest-path search to depth 3 on the four-role generator alphabet.",
+      "blocked_by": "That four-role alphabet and frontier were not built in this run."
+    }
+  ]
+}
