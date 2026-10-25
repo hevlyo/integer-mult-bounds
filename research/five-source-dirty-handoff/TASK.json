@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "persistent-boundary",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "persistent-boundary",
+    "question": "Can a specified pair of consecutive calls eliminate a restoration that the next call reconstructs?",
+    "starting_points": [
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Write typed entry/exit contracts and a contracting multitype recurrence.",
+      "Derive a lower bound for the compulsory transitions of one proposed typed interface."
+    ],
+    "acceptance_gate": "Show actual eliminated work and legal composition; changing a scalar recurrence into a matrix is insufficient.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Find a concrete consecutive-call boundary in the selected review and list its entry/exit obligations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Specify two call types and one operation actually removed by composition; derive the normalized recurrence.",
+    "bottleneck_link": "Eliminating compulsory boundary work can lower recursive cost beyond packing gains.",
+    "allowed_variations": [
+      "A two-type pilot or one explicit deferred restoration."
+    ],
+    "scope_change_triggers": [
+      "Rewriting the old scalar recurrence as a matrix without eliminating work."
+    ],
+    "overlap_terms": [
+      "persistent boundary",
+      "deferred restoration",
+      "multitype"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the pinned five-source singleton source-toggle connector, can two consecutive all-31-mask batches with disjoint output rows eliminate the intermediate restoration of the connector?",
+  "scope_change_reason": "The card allows one explicit deferred restoration on a specified pair. The pair is these two batches. The singleton alphabet is unchanged; only the intermediate exit state of the connector is relaxed, and the pair must still finish clean.",
+  "bottleneck_link": "The eliminated work is four singleton source toggles that a clean intermediate exit would reconstruct. This is boundary work between two calls. The interface is not part of the selected supplier, so the complex-binding kappa does not change.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop when the five-source two-batch unit-cost bill is settled by the length-9 and length-10 censuses and the doubled witness. Do not search six sources, a third batch, or unequal leaf prices past length 12.",
+  "outcome": "completed",
+  "evidence": "Selector seed d5d9544b2eed6422f062a78ef710d59c, scope key 026be4b6e61971d51838. Baseline python3 -B scripts/research_baseline.py returned PASS_RESEARCH_BASELINE_BINDINGS_ONLY with the complex primitive binding; make frontier1094-verify was not run. Restricted-growth census: length 9 has 0 universal walks (18002 words); length 10 has 188 universal walks, none ending at 0 (86472 words). Doubled witness B0 B1 B0 B2 B0 B1 B0 B3 B4 B3 has prefixes 0,1,3,2,6,7,5,4,12,28,20, restores on the second copy, and passes the symbolic paired-readout replay. Unit-cost bills are 144 versus 148 root queries. Factor-length witness costs are 152 versus 240 B-leaves; the open-leaf minimum is screened only through length 12. Discussion writes to CrocSwap/integer-mult-bounds are forbidden for this account and were not retried.",
+  "author": "an AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used to enumerate restricted-growth walks, check the witness schedule, and draft the package notes. No coding-agent product is named.",
+  "open_questions": [
+    {
+      "question": "Does any universal five-source singleton walk of length 13 through 21 have factor-length cost below 76 under prices (1,4,10,16,28)?",
+      "why_it_matters": "The unit-cost saving of four source toggles would remain, but the doubled witness's 152 B-leaves would not be a weighted minimum if a longer, more unbalanced walk is cheaper.",
+      "first_step": "Continue the restricted-growth census at length 13 and prune any branch whose optimistic remaining assignment cannot beat 76.",
+      "blocked_by": "This package stops the unequal-price screen at length 12. Absence of multiplicity (1,1,1,1,L-4) through that bound does not exclude it later."
+    },
+    {
+      "question": "Can three consecutive all-31-mask batches restore the connector with 30 length-10 segments, or must a third batch pay a clean-up walk?",
+      "why_it_matters": "The two-batch saving uses e XOR e = 0. Three copies of the witness end at 20, so the multitype recurrence does not automatically extend.",
+      "first_step": "Among the 188 length-10 restricted-growth covers, search for three endpoints that sum to 0 and compare 30 source toggles with three restored batches at 36.",
+      "blocked_by": "That search was not run. A negative result would cover length 10 only."
+    },
+    {
+      "question": "Does the four-toggle saving survive when the second batch must reuse the first batch's 31 output rows?",
+      "why_it_matters": "Disjoint rows are an explicit hypothesis. A mandatory delivery or copy between the calls could exceed the four saved source toggles.",
+      "first_step": "Fix one concrete copy contract for 31 rows, charge it on top of the 144-query handoff, and compare the total with 148.",
+      "blocked_by": "The predecessor's root-query model does not pin a delivery price, so the comparison needs that contract before it can falsify the saving."
+    }
+  ]
+}
