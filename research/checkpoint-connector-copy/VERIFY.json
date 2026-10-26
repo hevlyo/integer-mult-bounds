@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/universal-connector-boundary/CERTIFICATE.json",
+    "research/universal-connector-boundary/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Three-source exhaustive dirty identity and its omitted-readout and odd-checkpoint controls; independent four- and five-source census digests; exhaustive check that two, four, and six checkpoints add no mask on all 945 ten-toggle words; discussion-1412 eight-checkpoint witness at 80 calls and an alternate placement; twelve-toggle repair at 74 and cancelling pair at 76; L=1 identity checks for those schedules."
+    }
+  ]
+}

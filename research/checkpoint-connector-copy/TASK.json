@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "connector-alphabet-change",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "connector-alphabet-change",
+    "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
+    "starting_points": [
+      "research/universal-connector-boundary/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct and charge a legal extra operation on a minimal instance.",
+      "Prove a target-specific bound after adding one specified operation family."
+    ],
+    "acceptance_gate": "State which fixed-alphabet premise changes and charge its implementation; do not declare it free.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/universal-connector-boundary/verify.py"
+      ],
+      "expected": "PASS_UNIVERSAL_CONNECTOR_BOUNDARY",
+      "inspect": "Reproduce the 945-pairing control, then read Exact interface to list the allowed calls.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Add exactly one legally priced operation and test a tiny dirty-input instance before enumerating larger cases.",
+    "bottleneck_link": "A new legal connector operation could change recursive interface cost; a larger census in the same alphabet is a separate side result.",
+    "allowed_variations": [
+      "Choose one additional operation and a small source count for its first counterexample."
+    ],
+    "scope_change_triggers": [
+      "Keeping the alphabet and only increasing the source count; record this as a changed assignment."
+    ],
+    "overlap_terms": [
+      "universal connector",
+      "source-toggle",
+      "connector alphabet"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Does one paid checkpoint S: w += z, charged as a complete root call, lower the uniform query cost of the three-source all-7 batch or the five-source all-31 batch?",
+  "scope_change_reason": "The card allows one added operation. This package fixes that operation as the dirty row-add into one auxiliary connector, pilots it on the three-source all-7 batch, and charges it on the five-source all-31 batch. The singleton source alphabet is unchanged.",
+  "bottleneck_link": "A legal extra connector root could remove repeated source or output calls at a recursive boundary. Charging this copy shows that the uniform completed budget does not fall: the five-source optimum stays 74, and every schedule that uses the copy costs at least 76.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the uniform root-query ledger for this single checkpoint on the three-source all-7 batch and the five-source all-31 batch. Do not add a second alphabet symbol or optimize unequal leaf prices.",
+  "outcome": "completed",
+  "evidence": "Independent census digest matches the predecessor. Two, four, and six checkpoints add no mask on all 945 ten-toggle words. The discussion-1412 eight-checkpoint placement covers mask 21 at 80 root calls. The twelve-toggle repair costs 74, and two cancelling checkpoints on it cost 76. The three-source pilot accepts all 4096 dirty L=1 states at cost 20.",
+  "author": "an AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used to derive the parity collapse, check the schedules, and draft the package notes. No coding-agent product is named. No independent human review is claimed.",
+  "selector_seed": "20f4988602bbc7215eb9b2af37e16dc0",
+  "open_questions": [
+    {
+      "question": "Can one length-L row-add w += z be priced strictly below one quarter of both the repeated source call and the repeated output call in the predecessor tape account?",
+      "why_it_matters": "That is the threshold at which the 80-call eight-checkpoint witness would beat both singleton repairs. Under the uniform root-query ledger it loses.",
+      "first_step": "Charge one length-L row add with the head-travel and scratch rules in research/universal-connector-boundary/README.md, then compare eight such charges with two extra B2 leaves.",
+      "blocked_by": "This package charges every complete call as one root query and does not build that tape trace."
+    },
+    {
+      "question": "Does one checkpoint mixed with one published two-source toggle beat 74 under the same unit ledger?",
+      "why_it_matters": "Eight pure checkpoints lose to two extra singleton calls, but a second new symbol might cover with fewer charged calls.",
+      "first_step": "Charge both symbols and test the pilot word B0 B1 B2 B0 B3 B1 B4 B2 B3 B4, after checking that the schedule is not the existing 72-query DUO construction.",
+      "blocked_by": "A mixed alphabet is a second operation. This package stops at the single checkpoint."
+    }
+  ]
+}
