@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "assignment_seed": "e40e6919c4355ecbd8119bf42f3ffc2f",
+  "scope_key": "7acfe4d9cac04f7ba4cb",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On every 16-line union of the coordinate frame with one of the 1260 complementary E8 frames, what is the exact copied-information cost of an eight-term ordinary-transpose factorization of 2G, and does the even-entry mask lower that cost when the coordinate readers stay fixed?",
+  "scope_change_reason": "The card's first experiment is one finite support alphabet before a network. These 16 lines are the frame-pair puncture, taken as the live alphabet rather than as a p<=24 complement. The eight-term complement search is not repeated. No complete moment is formed because the copy ratio 1 is coarser than 7/13 and restoration is not priced.",
+  "bottleneck_link": "The binding complex supplier is limited by decoder copy cost. This alphabet is the equality-case puncture of the eight-term floor, so its own exact charge shows whether masking those lines beats the complement ratio. It does not: eight terms cost 16 on 16 lines, and fixed coordinate readers have the same charge under the even mask.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the eight-term identity and lower bound on this alphabet, including the fixed-reader mask. Do not search longer factorizations or build a hosted word in this session.",
+  "outcome": "completed",
+  "evidence": "verify.py reports PASS_FRAME_PAIR_SIXTEEN_EXACT frames=1260 admissible=896 cost=16 column_rank=2 orthogonal_rank_one_pairs=13440 controls=7. PROOF.md gives the ordinary-transpose eight-term lower bound and the fixed-reader mask accounting. A CrocSwap discussion write was forbidden and was not retried.",
+  "author": "hevlyo",
+  "ai_assistance": "Substantial AI assistance was used for the proof, the verifier, and these notes.",
+  "open_questions": [
+    {
+      "question": "Can a factorization into more than eight real terms make the sum of label-pairing ranks strictly less than 16 on one of these 16-line Grams?",
+      "why_it_matters": "The proved statement is an eight-term theorem. A longer factorization could still lower the absolute copied-information cost of the alphabet.",
+      "first_step": "Test whether any orthogonal rank-1 pair of standard columns can replace one rank-2 term in an exact integer dependence that still sums to D0 D0^T.",
+      "blocked_by": "Those pairs have coefficient dot product 0, and no identity yet rules out every longer rectangle decomposition."
+    },
+    {
+      "question": "Can these centres be hosted so that frame changes and dirty-state restoration cost less than the unpaid asymmetric-centre obligations of the P104 complement?",
+      "why_it_matters": "The copied-information ratio 1 is coarser than 7/13, so only a cheaper physical boundary could make the alphabet useful to the supplier.",
+      "first_step": "Write an entry and exit contract for one standard column, including arbitrary dirty partners in N(e), and price restoration against one P104 asymmetric centre.",
+      "blocked_by": "This note supplies no word, frame schedule, or hosting layout."
+    }
+  ]
+}

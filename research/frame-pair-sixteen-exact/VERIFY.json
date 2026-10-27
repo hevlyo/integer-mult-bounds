@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "All 1260 frame pairs: isometry, exact 2G identity, rank-2 columns, 896 admissible cross-check, complex ordinary-transpose gauge, and mutation controls."
+    }
+  ]
+}
