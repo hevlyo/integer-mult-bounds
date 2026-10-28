@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-k492-owner-repair/vendor/multicold/engines/base_two_moment.py",
+    "research/complex-k492-owner-repair/vendor/multicold/engines/moment.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Old 1163-bin support on (0, 1/500], four new width-6 maxima, no-arbitrage price -39, T=37 screen histogram, both moment engines at the U8 ticks, the screen ticks, 1/500 and 1/99, and four failure controls."
+    }
+  ]
+}
