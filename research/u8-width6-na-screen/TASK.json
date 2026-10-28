@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-new-helper-inventory",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-new-helper-inventory",
+    "question": "Can a new local cost interface change the deficit-to-recursive-cost ratio beyond current packing?",
+    "starting_points": [
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Propose a changed helper inventory and derive an optimistic exact moment.",
+      "Design a small completed instance and independently verify its endpoint and rank bill."
+    ],
+    "acceptance_gate": "A new physically realizable contract, not another mixture already covered by the frozen catalogue.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the frozen catalogue bound exclusions and select one genuinely different helper endpoint inventory.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write the complete optimistic child histogram and reject it immediately if even the relaxation has insufficient headroom.",
+    "bottleneck_link": "Helper inventory changes can improve the moment; repacking a covered cost interface cannot evade its scoped bound.",
+    "allowed_variations": [
+      "Narrow to one changed boundary or helper type with explicit counts."
+    ],
+    "scope_change_triggers": [
+      "Mixing only providers already inside the pinned catalogue."
+    ],
+    "overlap_terms": [
+      "helper inventory",
+      "heterogeneous-owner",
+      "mutable leaver"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "In the PR942 shared pool, replace all 122 U8 width-8 helpers by width-6 helpers, delete exactly two rank-1 children per replacement, and price width 6 at the unique most negative six-unit fill marginal on capacities at most 48. Does this optimistic dual relaxation reach primitive saving 1/99?",
+  "scope_change_reason": "The card allows one explicit helper type. Width 6 is absent from every frozen catalogue interface. The screen uses one uniform replacement count, 122, and one price, -39. It is not a mixture of the 25 pinned interfaces.",
+  "bottleneck_link": "The complex primitive binds. This width is outside the frozen helper alphabet, so the catalogue mixture bound does not price it. The fully charged relaxation still has saving below 1/500, which is below the retained 1/99 planning threshold for kappa above 1/100.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop when both moment engines certify the relaxation root below 1/500. Do not search for a scalar program of this same rewrite after that obstruction.",
+  "outcome": "negative-result",
+  "evidence": "PASS_U8_WIDTH6_NA_SCREEN. Both engines give moment below 1 at 1821649025053055110577/10^24 and above 1 at the next 10^-24 tick. Moment remains below 1 at the U8 successor tick 1664727258740678855773/10^24 and is above 1 at 1/500 and at 1/99.",
+  "author": "donated research session",
+  "ai_assistance": "Substantial AI assistance was used to derive the screen and to check the rational bounds. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can a proper subset of the 122 width-8 helpers be shrunk inside the pinned U8 scalar program so a hosted invoice, not only this dual lower bound, is strictly below 1 at 1664727258740678855773/10^24?",
+      "why_it_matters": "The screen leaves a gap between the U8 root and 1821649025053055110578/10^24. A hosted invoice inside that gap would be a real complex-side improvement. The same full rewrite cannot reach 1/99 under the stated price and mass hypotheses, so further effort on this rewrite should aim at that gap or stop.",
+      "first_step": "Shrink one width-8 helper in the pinned U8 word to width 6, delete exactly two rank-1 children, restore arbitrary dirty state, and evaluate the resulting one-call histogram in this same dual.",
+      "blocked_by": "This package contains no scalar program that performs the deletion. A signed price below -39 needs a credit rule other than the old fill marginals; that rule is outside the screen."
+    }
+  ],
+  "discussion_posting": "Discussion writes for this account were already forbidden. This session did not retry them."
+}
