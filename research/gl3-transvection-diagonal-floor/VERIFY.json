@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/bit-three-register-lower-bound/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "All 168 transvection factorizations, the rank-1 image of every three-register paid call, the width-3 witness of length 6 and its represented rank, all 28224 width-2 diagonal identities, and eight failure or alphabet-separation controls."
+    }
+  ]
+}
