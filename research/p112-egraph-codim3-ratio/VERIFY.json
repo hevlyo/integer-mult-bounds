@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Independent witness hits 612 and beta 1, both supports are 6-dimensional flats, three failure controls, and the compiled census reports PASS_CENSUS 17/35 on the same roots."
+    }
+  ]
+}
