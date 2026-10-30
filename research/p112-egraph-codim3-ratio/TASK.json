@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On P112, what is the exact maximum of (E-graph 8-cliques hit) / (1260 * pairing rank) over port supports cut out by an F2^9 subspace of dimension at least 6?",
+  "scope_change_reason": "The card's first experiment asks for one finite support alphabet and an exact decoding constraint before a network is built. The alphabet is the codimension-at-most-3 E-graph kernels from PR717 D1(e), an excluded masked class of the eight-term all-pairs theorem. The exhaustive frame ratio replaces that note's 20000-pair sample. Restoration beyond this frame quotient is not priced.",
+  "bottleneck_link": "The complex side binds. A masked decoder cheaper than the eight-term floor would have to beat this frame-substitution quotient on the E-graph. The exact quotient 17/35 still leaves the covering relaxation at 280/17, below 64, so this alphabet does not by itself raise the complex budget.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the codimension-at-most-3 flat census and its witness check. Do not search proper subsets or build a supplier.",
+  "outcome": "negative-result",
+  "evidence": "Witness hits 612 at beta 1, ratio 17/35, covering bound 280/17. Census command prints PASS_CENSUS 17/35. The sampled ratio 23/126 is strictly smaller. No kappa change. Discussion writes are forbidden for this account and were not retried.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used for the census, the independent witness check, and the packaging. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can a proper subset of one codimension-at-most-3 kernel raise the frame-hit ratio above 17/35?",
+      "why_it_matters": "A higher ratio would lower the covering bound 280/17 further. The flat census does not decide subsets, and a subset of a higher-rank kernel can drop beta faster than it drops the clique count.",
+      "first_step": "For each dimension-6 kernel whose self-pairing rank is at least 4, delete one port and recompute hits and beta. Keep a subset only if its ratio exceeds 17/35.",
+      "blocked_by": "The deletion family is outside the D1(e) flat list, and the deletion tree is larger than the flat census completed here."
+    }
+  ]
+}
