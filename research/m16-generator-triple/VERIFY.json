@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "M16 presentation, order-4 center and derived subgroup; all 28 rank-one idempotents; augmentation dimensions and degree-1 classes; Delta^2 cross terms for every paid pair; exhaustive absence through length 7 for the a^3 and a^5 triples and the sharp length-9 witnesses; a^2 minimum 6; a^4 and a^6 absence through length 7 with length-12 upper words; seven positive and negative controls."
+    }
+  ]
+}
