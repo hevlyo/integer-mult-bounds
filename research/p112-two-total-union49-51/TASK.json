@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For the pinned P112 coordinate readers and exactly two added totals, do source unions of size 49, 50 or 51 lower the separate-total pairing-rank sum below the union-48 full-rank floor?",
+  "scope_change_reason": "The card allows one specified overcomplete family. The eight-term all-pairs theorem excludes ten-term decoders, and the fixed-reader two-total screen was previously closed only through source union 48. This note keeps those eight coordinate readers and prices unions 49, 50 and 51. It does not repeat the eight-term all-pairs search. Frame and restoration charges are set to zero, which is the direction that could only help a negative copy-rank screen.",
+  "bottleneck_link": "The complex primitive binds the selected conditional kappa. A two-total decoder whose fully charged moment beat the current complex budget would have to lower this copy-rank sum or move the child histogram. Unions 49-51 do not lower the full-rank on-column copy-rank sum below 65, so they do not by themselves improve kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the closed-support census through size 51, the size-36 budget comparison, the cut search, and the single-codeword search at cap 51 are complete, whether or not the loss bound rises.",
+  "outcome": "negative-result",
+  "evidence": "verify.py prints PASS_P112_TWO_TOTAL_UNION49_51. Retained loss stays 5 at caps 49, 50 and 51; the full-rank on-column floor stays 65; the union-48 witness bill is 74. No closed support has size 49 or 51.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used for the mathematics, implementation, verification and writing. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Does source union 52 raise the fixed-reader two-column retained loss above 5?",
+      "why_it_matters": "Cap 52 is the first point at which a size-40 lead has a 12-port outside budget, so the cut-only reduction no longer applies to those leads. A loss of 7 or more would drop the full-rank relaxation to 64 or below.",
+      "first_step": "Enumerate closed supports of size 52 and test condition N on every lead whose outside budget is still below 12.",
+      "blocked_by": "Size-40 leads at cap 52 need the widened companion enumeration. This package only shows that widening a size-36 lead from 12 ports to 15 adds nothing."
+    },
+    {
+      "question": "Is the full-rank on-column floor 65 attained by any loss-5 two-total correction?",
+      "why_it_matters": "The proved floor is a price relaxation. The explicit witness costs 74. If every loss-5 shape costs at least 66, the stronger floor extends through union 51.",
+      "first_step": "For each N-satisfying loss-5 shape, compute the minimum support of a nonzero vector in the correction column space and apply the 12/12 cut sign balance.",
+      "blocked_by": "Shapes other than one four-dimensional lead plus a single cut have free coordinate entries. This package does not solve those systems."
+    }
+  ]
+}

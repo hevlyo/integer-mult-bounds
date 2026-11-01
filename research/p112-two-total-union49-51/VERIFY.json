@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-single-lift/reference-geometry.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 400,
+      "checks": "Pinned P112 geometry hash, reader-code premises, closed-support census through size 51, size-36 budget stability, cut-configuration rank screen, single-codeword tuple screen, union-48 loss-5 identity and bill, price floor 65, corrupted-pin and perturbed-minor controls."
+    }
+  ]
+}
