@@ -1,0 +1,19 @@
+{
+  "schema": "pr379-low-read-portable-replay-expected-v1",
+  "predecessor_commit": "e01bcc51ca7ee93cec54350afae8f163aafc8f93",
+  "all_charts_sha256": "f80ce668c9ee7458b82c8ed249546b297f2cc934bd10d7b81a74b0cd61b0d989",
+  "chart_receipt_sha256": "a4f741aea4a697c0f592cef4f84f45e72768870e6af6897a642d6fd0365af805",
+  "program_sha256": "b702c84c6d10e7445e5d3401377391048289193fde01765488cff1fde748efc4",
+  "candidate_kappa": "3618278388573/4000000000000000",
+  "candidate_bit_coarse": "905388584776183/1000000000000000000",
+  "complex_b3": "932783231884153/1000000000000000000",
+  "pr370_replay_kappa": "875481145306751/1000000000000000000",
+  "json_hpp_sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63",
+  "absent_manifest_paths": [
+    "code/__pycache__/outer.cpython-311.pyc",
+    "proof/signed-source/run.log",
+    "provenance/full-replay-cp311.log",
+    "provenance/full-replay-cp312.log",
+    "source/signed-source/run.log"
+  ]
+}
