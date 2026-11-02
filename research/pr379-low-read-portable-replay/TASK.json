@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Reproduce the PR379 verifier stop on five absent historical bytecode and log paths, then replay the retained low-read candidate, chart geometry, five-stage columns, lowering, 47-constraint assembly, and seven-stage complex coarse saving without accepting the PR370 full-replay kappa as this candidate.",
+  "scope_change_reason": "The card asks for one portability failure whose repair keeps proof-relevant content. The named failure is the retained e8-low-read-seven-complex manifest at e01bcc51, not a gzip-container byte comparison. The missing paths are an interpreter bytecode file and four logs; deleting them would hide the stop without replaying the candidate.",
+  "bottleneck_link": "A source-complete replay lets this retained historical candidate be checked on another interpreter without treating an environment file, or the older PR370 kappa, as the mathematical result. It does not change the selected supplier.",
+  "budget_minutes": 60,
+  "stop_rule": "One package at the retained PR379 head. Stop after the candidate word, charts, columns, lowering, assembly, and bundled seven-stage complex script. Do not rerun frontier1094 or treat the absent full-source logs as regenerated.",
+  "outcome": "partial",
+  "evidence": "On Python 3.12.3 the original verifier raises FileNotFoundError at code/__pycache__/outer.cpython-311.pyc before any receipt check. The five absent manifest paths are exactly that bytecode file plus proof/signed-source/run.log, provenance/full-replay-cp311.log, provenance/full-replay-cp312.log, and source/signed-source/run.log. The retained full-replay receipt kappa is 875481145306751/10^18 on both interpreters, not the candidate 3618278388573/4000000000000000. Fresh candidate-certificate verify.py matches its retained RESULT.json, including the five-stage histogram and the floored bit coarse 905388584776183/10^18. Regenerated ALL-CHARTS.json and CHART-RECEIPT.json match the retained bytes; a one-bit record mutation does not. columns_h.cpp matches col.json except the input path and elapsed seconds, with 1345 formal columns. lower_and_bank.py reproduces LOWERING-BANKS.json and GLOBAL-PROGRAM.bin sha256 b702c84c6d10e7445e5d3401377391048289193fde01765488cff1fde748efc4. assemble.py reproduces assembly.json, including 47 strict constraints. The bundled PR363 verify.sh reproduces b = 932783231884153/10^18.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used for task selection, the replay harness, and execution. Mathematical claims are limited to the checks named in this package. No coding-agent product is named.",
+  "open_questions": [
+    {
+      "question": "Can legality_h.cpp and the signed defining-source checker be rerun from the producers that created their inputs?",
+      "why_it_matters": "The retained review still lists native legality and signed-decoder obligations. This package does not rerun those two checkers.",
+      "first_step": "Compile legality_h.cpp against proof/check/cin and the retained cout cohort, compare leg.json aside from elapsed time, and run the signed-source checker on its own records.",
+      "blocked_by": "The legality inputs are already-produced cohort files, so a match would not show that this candidate regenerated them. Those files were left outside this package."
+    },
+    {
+      "question": "Can a fresh two-interpreter source replay replace provenance/FULL-REPLAY-RECEIPTS.json?",
+      "why_it_matters": "That receipt records the PR370 baseline kappa, so it is not evidence for this candidate, and both historical logs are absent.",
+      "first_step": "Run the candidate's own full source at CPython 3.11 and 3.12 and record the exit codes and kappa.",
+      "blocked_by": "The bundled provenance/lowread-full-replay-source.tar.gz is the PR370 source tree, and the cp311 and cp312 logs are not in the retained tree."
+    }
+  ]
+}

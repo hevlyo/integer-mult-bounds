@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [
+    "sympy==1.14.0"
+  ],
+  "inputs": [
+    "research/e8-bit-carrier-skeleton/code/bit/checkers/json.hpp"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Original manifest stop, candidate word and moment, chart mutation, five-stage columns, lowering program, 47-constraint assembly, and bundled seven-stage complex saving."
+    }
+  ]
+}
