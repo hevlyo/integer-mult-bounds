@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Group law, center, derived subgroup, augmentation classes, 28 idempotents, 56-call inverses and associativity, length-2 and length-3 symbol congruence, exact frontiers 2352 and 92374, sharp central minima 6, 6, 8 and 8, product absence through length 6, coordinate witnesses, and eight failure controls."
+    }
+  ]
+}
