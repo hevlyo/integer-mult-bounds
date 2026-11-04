@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "files": [
+    {
+      "path": "certificates/selected-result.json",
+      "usage": "provenance",
+      "git_blob": "ae6a99f28aa468649eb66a361e764d769363bf11",
+      "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
+    },
+    {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "c05fafaa25ba95b2d5af86b1800427198e3d20eb",
+      "sha256": "89b5928bc92c81e2647b6d702a7ad85a6795b8f44e2eb267b2ff3145d8f2b2ce"
+    },
+    {
+      "path": "research/community-reconciliation-next100-audit/CI-SOURCE-CONTEXT.json.gz",
+      "usage": "input",
+      "git_blob": "4dc1d095a8803a2831b7b16d73b155a123497d4e",
+      "sha256": "f7eb58ea17f9b44e7cbdff24407c6d97875e0b79c2cd5b9d1962003b29833def"
+    },
+    {
+      "path": "research/community-reconciliation-next100-audit/SOURCES.json.gz",
+      "usage": "input",
+      "git_blob": "612b34c1526812bfadff482bd3c6cde6ffaaad03",
+      "sha256": "0373e78c932a4bed8c395045806e00da5efd5b8638df2a89da0835d3066e166f"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/CI-SOURCE-CONTEXT.json.gz",
+      "usage": "input",
+      "git_blob": "122ecad764ac272d1384d06998e13e4ffb23f837",
+      "sha256": "31e0db40c36c9c1b945966e4fbc4891b335850639edcaee532e0544997efa89d"
+    },
+    {
+      "path": "research/community-reconciliation-third100-audit/SOURCES.json.gz",
+      "usage": "input",
+      "git_blob": "0ab555851eecdae45c3d6dcd14a3a9077db7502c",
+      "sha256": "e11bba3f79787d750c0c6bb79df9d14a4fcae2046b01ec381682f99eba43ff50"
+    },
+    {
+      "path": "research/community-reconciliation92-audit/SOURCES.json.gz",
+      "usage": "input",
+      "git_blob": "ad66d8f9d829afa76826ee9767ef44456dc61b8f",
+      "sha256": "0f5cbe15a905243f9c227b9de03e8aefb451913aa7846d2db51e36135ec40a3a"
+    }
+  ]
+}

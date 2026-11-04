@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected reproduction command and choose a single replay stage for profiling.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Speed up Git tree authentication in the 92-PR, next-100 and third-100 reconciliation verifiers by reusing an OID only for an identical path, mode and blob listing, while every pinned tree SHA and the rest of each verifier stay in force.",
+  "scope_change_reason": "The catalogue asks whether one measured replay bottleneck can be sped up without dropping coverage, by source-bound reuse with explicit invalidation. The measured stage is the tree walk inside the three verifiers that scripts/verify_pr_reconciliation.py runs. The domain is their pinned commit trees and, for the two larger audits, their CI checkout trees. Evidence archives stay byte-identical; only each verifier and its manifest self-pin change.",
+  "bottleneck_link": "These three verifiers are on the reconciliation path that review replay already runs. A faster tree check with the same pinned SHAs shortens that replay without changing the selected multiplication exponent.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after this one stage. Do not retune gzip or JSON parsing, and do not treat a faster tree OID as a change to kappa. A cached walk that is not faster than the predecessor on the same listings falsifies the change.",
+  "outcome": "completed",
+  "evidence": "Every pinned tree OID matches the base-commit predecessor and the cached walk. A one-blob edit misses the cache and disagrees with the pin. A poisoned cache fails audit. The three integrated verifiers still pass their other evidence checks.",
+  "author": "research session",
+  "ai_assistance": "Substantial AI assistance was used to profile the verifier, implement the cache, and write this package. The assistance is disclosed without naming a coding-agent product.",
+  "open_questions": [
+    {
+      "question": "Can the residual gzip and JSON cost of these three verifiers be reduced without changing pinned evidence bytes or the manifest self-check?",
+      "why_it_matters": "After the tree cache, most of the remaining wall time is decompression and parsing of the same archives, so review replay is still dominated by that I/O.",
+      "first_step": "Profile one unprofiled third-100 run, separate gzip.decompress from json.loads, and test one reuse keyed by the compressed bytes.",
+      "blocked_by": "A parsed-object cache has to miss when those bytes change, and the manifest still hashes the bytes. This package does not change that path."
+    },
+    {
+      "question": "Should each historical manifest pin scripts/git_tree_oid.py so a later edit cannot change tree authentication unnoticed?",
+      "why_it_matters": "The verifiers import that helper. Their manifests pin verify.py, not the helper, so a helper edit changes the digest while the self-pin still matches.",
+      "first_step": "Record the helper path and SHA256 in each manifest and reject a one-byte helper change before accepting a tree OID.",
+      "blocked_by": "Those manifests currently list only files inside the audit directory. Extending that inventory is a separate evidence-format change."
+    }
+  ]
+}
