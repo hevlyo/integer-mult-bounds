@@ -6,8 +6,9 @@ This is not a multiplication-theorem verifier and does not replay historical CI.
 import argparse
 import gzip
 import hashlib
+import importlib.util
 import json
-from pathlib import Path, PurePosixPath
+from pathlib import Path
 import subprocess
 
 HERE = Path(__file__).resolve().parent
@@ -28,25 +29,26 @@ def oid(kind, raw):
     return hashlib.sha1(kind.encode()+b' '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
 
 
+def _cached_tree_oid():
+    path = ROOT / 'scripts' / 'git_tree_oid.py'
+    spec = importlib.util.spec_from_file_location('git_tree_oid', path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.tree_oid
+
+
+_TREE_OID = _cached_tree_oid()
+_TREE_CACHE = {}
+
+
 def tree_oid(files):
-    tree = {}
-    for f in files:
-        p = PurePosixPath(f['path'])
-        require(not p.is_absolute() and '..' not in p.parts and str(p) == f['path'], 'Unsafe source path')
-        node = tree
-        for part in p.parts[:-1]:
-            node = node.setdefault(part, {})
-        require(p.name not in node, 'Duplicate source path')
-        require(f['mode'] in ('100644', '100755'), 'Unexpected source mode')
-        node[p.name] = (f['mode'], f['blob'])
-    def encode(node):
-        entries = []
-        for name, value in node.items():
-            directory = isinstance(value, dict)
-            mode, sha = ('40000', encode(value)) if directory else value
-            entries.append(((name+('/' if directory else '')).encode(), mode.encode()+b' '+name.encode()+b'\0'+bytes.fromhex(sha)))
-        return oid('tree', b''.join(raw for key, raw in sorted(entries)))
-    return encode(tree)
+    """Reuse a tree OID when the path, mode and blob listing is unchanged.
+
+    A changed dependency is a cache miss. The caller still requires this OID
+    to equal the pinned tree SHA. The digest definition lives in
+    scripts/git_tree_oid.py and is checked against this function's predecessor.
+    """
+    return _TREE_OID(files, _TREE_CACHE)
 
 
 def main():
