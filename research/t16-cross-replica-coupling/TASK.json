@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the selected PR1094 T16 owner map, are atomic restoration and absence of an internal lender read separately necessary for the inherited cross-group no-coupling sentence, and does owner-window admission of one pinned cross-replica role discharge that sentence?",
+  "scope_change_reason": "The card allows one restoration lemma. The object is the cross-group sentence in research/complex-double-replica-owners/PROOF.md, inherited by the selected sixteen-replica owner map, restricted to role 0 (replica 0 borrowing family 13006 from replica 14 at time 0) and to five exact schedules in the pinned gate encoding. This is not an all-size proof, not a new finite smoke replay of the frontier, and not the historical PR626 bridge-omission diagnostic.",
+  "bottleneck_link": "Selected owner-map packing improves the conditional saving only while a cross-replica borrow stays scalar-neutral. The no-coupling sentence is one retained hosting hypothesis. Showing that each of its two clauses is necessary, and that the current owner-window pass does not read the scalar schedules, keeps that transfer obligation explicit. It does not change either primitive budget or kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the pinned role, the selected owner admission, and the five exact schedules. No parameter search, no second role family, and no frontier cold replay.",
+  "outcome": "completed",
+  "evidence": "Selector nonce 9332192c4263f5939bc98e5a64f92f45, track adversarial-audit, card uniform-transfer-audit, scope key 603f341b99f590f17a76. Baseline bindings passed. The PR626 owner-boundary verifier passed and was used only to avoid repeating that bridge-omission diagnostic. python3 -B research/t16-cross-replica-coupling/verify.py returns PASS_T16_CROSS_REPLICA_COUPLING. For dirty state (3,-5,7), no-borrow and atomic restoration both end at (3,-5,10); omitted cleanup ends at (1,-2,8); a lender read between the write and the cleanup ends at (3,-5,8) with the borrowed coordinate and scratch restored. Owner admission still reports 69120 roles, 57480 cross-replica roles, deficit 5120. Narrowing the pinned width from 9 to 8 is rejected by R2. Refreshed overlap on 2026-11-05 for the phrases no new scalar coupling, borrowed family and cross-group helper: complete coverage of 683 open pull requests and 6806 discussion records, zero matches. Discussion writes were not attempted: earlier runs received FORBIDDEN for this account.",
+  "author": "Riquelme Pereira",
+  "ai_assistance": "Substantial AI assistance was used for task selection, the exact schedules, the verifier and the notes. This is not independent human review.",
+  "open_questions": [
+    {
+      "question": "Does helper 0's shipped cleanup restore every coordinate of family 13006 written by its width-9 residual and spectators, for arbitrary dirty input?",
+      "why_it_matters": "The four-gate model shows that omitted cleanup couples the lender. It does not show that the real local word performs that cleanup on this borrowed family.",
+      "first_step": "Bind this role's chart to register ids and evaluate the real cleanup projection on those registers against the identity.",
+      "blocked_by": "The chart-to-register binding and the local scalar replay were not rerun. The owner auditor does not carry those registers."
+    },
+    {
+      "question": "Can the emitted controller place a lender scalar read inside one local invocation while keeping the thirty-event per-replica projection?",
+      "why_it_matters": "Final restoration does not protect the lender if the read happens before cleanup. The owner auditor records the sweep as one event.",
+      "first_step": "Inspect one serialized local_cover_sweep and confirm it contains no lender gate on the borrowed family.",
+      "blocked_by": "The emitted global template's internal gate list was not opened in this package."
+    }
+  ]
+}

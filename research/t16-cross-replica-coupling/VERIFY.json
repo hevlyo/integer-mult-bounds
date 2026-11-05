@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-k492-audit/pr622/replay/baseline558/complex-global/base/work/complex-nine-native/DATA-PHASES.json",
+    "research/complex-double-replica-owners/PROOF.md",
+    "research/complex-k492-owner-repair/vendor/multicold/vendor/pr558/vendor/pr552/complex-global/vendor535/inputs/ROUND20-PARENT-TEMPLATE.json.gz",
+    "research/complex-t16-rare-pattern-exchanges/data/OWNERS.json.gz",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json",
+    "research/complex-t16-rare-pattern-exchanges/data/SPEC.json",
+    "research/t16-owner-audit-seed67/inputs/k8-seven-slot-word.json.gz",
+    "research/t16-owner-audit-seed67/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned-input hashes, the inherited no-coupling paragraph, exact add/scale images against hand values, owner admission of the pinned cross-replica role, and rejection of a narrowed width, a non-dyadic coefficient, a zero numerator and a half-coefficient cleanup."
+    }
+  ]
+}
