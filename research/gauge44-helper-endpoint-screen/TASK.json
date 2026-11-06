@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-new-helper-inventory",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-new-helper-inventory",
+    "question": "Can a new local cost interface change the deficit-to-recursive-cost ratio beyond current packing?",
+    "starting_points": [
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Propose a changed helper inventory and derive an optimistic exact moment.",
+      "Design a small completed instance and independently verify its endpoint and rank bill."
+    ],
+    "acceptance_gate": "A new physically realizable contract, not another mixture already covered by the frozen catalogue.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the frozen catalogue bound exclusions and select one genuinely different helper endpoint inventory.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write the complete optimistic child histogram and reject it immediately if even the relaxation has insufficient headroom.",
+    "bottleneck_link": "Helper inventory changes can improve the moment; repacking a covered cost interface cannot evade its scoped bound.",
+    "allowed_variations": [
+      "Narrow to one changed boundary or helper type with explicit counts."
+    ],
+    "scope_change_triggers": [
+      "Mixing only providers already inside the pinned catalogue."
+    ],
+    "overlap_terms": [
+      "helper inventory",
+      "heterogeneous-owner",
+      "mutable leaver"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the pinned PR1094 gauge44 histogram, certify the pure-deletion threshold of rank mass 1 versus 2 and the eight-for-one rank-8 coalescence threshold 42 versus 43, uniformly across all 144 calls, at the selected bit endpoint.",
+  "scope_change_reason": "The card asks for a new realizable helper contract. This package keeps the pinned width multiset, call count, idle remainder, and observed mass identity, and prices two explicit endpoint edits. It does not mix frozen-catalogue providers and does not claim a scalar word. The refinement decides whether those edits have moment headroom before a circuit search.",
+  "bottleneck_link": "The complex primitive binds. These are the smallest edits in the two stated families that push the selected complex moment strictly below one at the bit endpoint. A later contract with the same child delta must clear these counts; the screen itself does not change kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the exact signs for mass 1, both mass-2 deletions, and coalescence counts 42 and 43 are certified, with the per-mass order and published endpoint controls. Do not search the canonical word or rerun the selected cold replay in this session.",
+  "outcome": "completed",
+  "evidence": "verify.py prints PASS_GAUGE44_HELPER_ENDPOINT_SCREEN. Chooser seed ef87d06bc5be1f65ff317cc1c45c907b. Overlap search at 2026-11-06T12:17:07Z, complete open-PR and discussion pagination, did not find this threshold. Selected kappa is unchanged. The handoff-discussion write was rejected with Resource not accessible by integration and was not retried.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used to choose the screen, write the checker, and compare the rational moment bounds. No product is named. This is not an independent human review.",
+  "open_questions": [
+    {
+      "question": "Does the pinned gauge44 word contain a pure deletion of two rank units in every call, or 43 disjoint eight-for-one rank-8 replacements, with an empty restoration and frame bill?",
+      "why_it_matters": "Either edit is the first histogram in this screen that meets the bit endpoint, and every smaller copy of the same edit is excluded.",
+      "first_step": "Count disjoint rank-1 and rank-8 frame events in the canonical local word and reject any candidate that adds a child or a restoration.",
+      "blocked_by": "The paid histogram does not identify movable children. Extraction, routing, and dirty restoration are not priced here."
+    },
+    {
+      "question": "If a helper width outside {4,5,7,8,9} is added, does paid mass remain M+1856, or does the new helper add a child that consumes the two-unit surplus?",
+      "why_it_matters": "The mass-2 deletion meets the bit endpoint only when those two units are not replaced by a new positive-rank child.",
+      "first_step": "Write one width-6 endpoint law and its exact child delta, then rerun this screen on that delta.",
+      "blocked_by": "No width-6 endpoint law is proved in this package."
+    }
+  ]
+}
