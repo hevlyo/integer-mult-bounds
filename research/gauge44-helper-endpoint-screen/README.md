@@ -146,3 +146,6 @@ split. Apache-2.0.
 
 Prepared with substantial AI assistance. This is not an independent human
 review or a formal verification of integer multiplication.
+
+A finding comment on the handoff discussion was rejected with
+`Resource not accessible by integration`. That write was not retried.

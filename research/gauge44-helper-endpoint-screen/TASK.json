@@ -46,7 +46,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop once the exact signs for mass 1, both mass-2 deletions, and coalescence counts 42 and 43 are certified, with the per-mass order and published endpoint controls. Do not search the canonical word or rerun the selected cold replay in this session.",
   "outcome": "completed",
-  "evidence": "verify.py prints PASS_GAUGE44_HELPER_ENDPOINT_SCREEN. Chooser seed ef87d06bc5be1f65ff317cc1c45c907b. Overlap search at 2026-11-06T12:17:07Z, complete open-PR and discussion pagination, did not find this threshold. Selected kappa is unchanged.",
+  "evidence": "verify.py prints PASS_GAUGE44_HELPER_ENDPOINT_SCREEN. Chooser seed ef87d06bc5be1f65ff317cc1c45c907b. Overlap search at 2026-11-06T12:17:07Z, complete open-PR and discussion pagination, did not find this threshold. Selected kappa is unchanged. The handoff-discussion write was rejected with Resource not accessible by integration and was not retried.",
   "author": "AI-assisted research session",
   "ai_assistance": "Substantial AI assistance was used to choose the screen, write the checker, and compare the rational moment bounds. No product is named. This is not an independent human review.",
   "open_questions": [
