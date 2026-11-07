@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "independent-moment",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "independent-moment",
+    "question": "Can one selected pricing or assembly claim be checked by a genuinely independent exact implementation?",
+    "starting_points": [
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Reconstruct the rank ledger from original operations rather than trusting its aggregate.",
+      "Implement certified moment inequalities through a different exact enclosure method."
+    ],
+    "acceptance_gate": "Demonstrate independence, source binding, positive cases and semantic failure controls.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Record the selected certificate and complex_profile rather than taking a PR headline as input.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Recompute one small part of the ledger or one certified enclosure using an independent implementation.",
+    "bottleneck_link": "Independent pricing prevents unsupported frontier claims and can reveal genuine accounting slack.",
+    "allowed_variations": [
+      "Reconstruct either a source ledger or a numeric enclosure with a different method."
+    ],
+    "scope_change_triggers": [
+      "Importing the primary function and calling its output independent verification."
+    ],
+    "overlap_terms": [
+      "independent moment",
+      "rank histogram",
+      "exact enclosure"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Enclose the selected PR1094 conservative complex moment, including the inherited bad-residue surcharge, by a positive binomial series that does not import the retained logarithm or exponential engines, and recompute the recorded conservative kappa grid point.",
+  "scope_change_reason": "The card asks for one selected pricing claim and an independent exact enclosure. The native endpoint is already certified by Mercator, base-two, and the code-disjoint atanh sweep. This check is the conservative bracket of the same frozen profile, which that sweep does not evaluate with the surcharge enabled.",
+  "bottleneck_link": "The complex primitive binds the selected kappa. The conservative endpoint is the same profile priced with the old surcharge, so its sign decides whether that extra charge still leaves a feasible saving. No new kappa is claimed.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the conservative bracket, the native-with-surcharge rejection, the conservative kappa identity, and the failure controls. Do not start a construction or the full cold replay.",
+  "outcome": "completed",
+  "evidence": "PASS_SELECTED_CONSERVATIVE_BINOMIAL. Conservative endpoint 1675462673946628390003/10^24 has binomial moment strictly below one; the next 10^-24 grid point is strictly above one. Both residuals overlap the recorded Mercator and base-two intervals. Restoring the surcharge at the native endpoint puts the moment strictly above one. Conservative kappa equals 104541262139063/62500000000000000. Selected kappa is unchanged.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used to choose the bracket, implement the enclosure, and check it. No product brand is named.",
+  "open_questions": [
+    {
+      "question": "Does omitting the PR589 bit surcharge fail to reject the next bit endpoint, as the selected model control states?",
+      "why_it_matters": "The selected surcharge model is two-sided. This package encloses only the complex side.",
+      "first_step": "Load the cited PR589 profile and live stock and run this same binomial moment at the recorded bit endpoint and the next 10^-24 point, with and without the surcharge.",
+      "blocked_by": "The bit histogram and live stock are not fields of the selected assembly. They were not re-derived here."
+    },
+    {
+      "question": "Is the frozen complex profile produced by the owner map and the scalar word, rather than only consistent across PLAN.json, PROFILE.json and the assembly?",
+      "why_it_matters": "A wrong frozen profile would make this arithmetic certify the wrong object.",
+      "first_step": "Replay the owner half of research/community-batch1099-audit/check_frontier1094.py in a fresh work directory and compare its profile with PLAN.json.",
+      "blocked_by": "That replay needs the pinned T16 word, template and phases. It was not run in this session."
+    }
+  ]
+}
