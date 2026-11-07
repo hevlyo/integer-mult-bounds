@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/complex-t16-rare-pattern-exchanges/PROFILE.json",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Positive binomial enclosure of the selected conservative complex moment with the inherited surcharge, overlap with both recorded engine residuals, native endpoint rejected once that surcharge is restored, conservative kappa grid identity, exact a=0 and a=1 calibrations, and semantic failure controls."
+    }
+  ]
+}
