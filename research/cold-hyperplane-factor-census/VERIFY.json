@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/hyperplane-end-lean/HyperplaneEnd/Exact.lean",
+    "research/hyperplane-end-lean/HyperplaneEnd/Multi.lean"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Packed operator equality for all 511 cold hyperplanes, empty-frame identity, exclusion of the three rank-1 Lean entrances, and rejection of a phase mutant, a deleted C gate, swapped monomials, the identity circuit, and a translated identity."
+    }
+  ]
+}

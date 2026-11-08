@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Finite operator discharge of exact_cold's identity and factorization hypotheses, and of cold_hyperplane_width's numerical conclusions, for every hyperplane of F_2^9.",
+  "scope_change_reason": "The card allows one interface lemma. This narrows it to the cold rank-8 hypotheses named in HyperplaneEnd/Multi.lean. The three non-cold pairs already have a Lean proof and are not recomputed.",
+  "bottleneck_link": "The hyperplane-end review leaves the cold rank-8 factorization as a local unshipped check. Discharging that finite hypothesis does not change the selected complex-binding kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after all 511 hyperplanes and the listed mutants agree or fail as required. Do not start a Lean build or a selected-frontier replay.",
+  "outcome": "completed",
+  "evidence": "verify.py prints PASS_COLD_HYPERPLANE_FACTOR_CENSUS for 511 hyperplanes, digest 4fd58c1106311ef12bb46f744bc7629d583b0539081238feedb808e5f40515ed, and rejects a phase mutant, a deleted C gate, swapped monomials, the identity circuit, and a translated identity.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance drafted the verifier, the notes, and the checks. No coding-agent product is named. This is not an independent human review.",
+  "open_questions": [
+    {
+      "question": "Does one emitted cold helper, with its actual dirty entrance and cleanup tail, satisfy the unit-row and wrapper-recipe hypotheses that exact_cold does not touch?",
+      "why_it_matters": "The operator identity is checked for every abstract hyperplane, but an emitted word can still fail the physical hypotheses required to apply the cold lemma.",
+      "first_step": "Pin one shipped cold helper whose entrance is empty and whose terminal is a hyperplane, then compare its named recipe with the monomials in this digest.",
+      "blocked_by": "This package contains no emitted cold word, and the physical hyperplane-end replay was not run."
+    }
+  ]
+}
