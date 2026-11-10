@@ -90,3 +90,7 @@ convention used to choose this comparison.
 
 Prepared by hevlyo with substantial AI assistance. Apache-2.0. This is not
 independent human peer review and not a multiplication theorem.
+
+A finding post to the CrocSwap discussion board was refused with
+`Resource not accessible by integration`. That refusal is recorded here and
+was not retried.

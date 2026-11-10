@@ -46,7 +46,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop after both committed providers, one non-timing scalar-audit field, the declared phase-seconds exclusion, one visible phase field, and one missing-file rejection. Do not rerun a cold supplier replay or edit the identity.",
   "outcome": "completed",
-  "evidence": "python3 -B research/scalar-audit-identity-gap/verify.py prints PASS_SCALAR_AUDIT_IDENTITY_GAP providers=2 omitted_non_timing_fields=22. scalar_operations is absent from the seven identity inputs, and adding one leaves every returned identity unchanged.",
+  "evidence": "python3 -B research/scalar-audit-identity-gap/verify.py prints PASS_SCALAR_AUDIT_IDENTITY_GAP providers=2 omitted_non_timing_fields=22. scalar_operations is absent from the seven identity inputs, and adding one leaves every returned identity unchanged. A CrocSwap discussion post was refused with Resource not accessible by integration and was not retried.",
   "author": "hevlyo",
   "ai_assistance": "Substantial AI assistance was used to prepare this package. No coding-agent product is named.",
   "open_questions": [
