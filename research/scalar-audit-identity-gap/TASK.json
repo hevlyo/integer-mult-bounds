@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the committed #626 ck and jp8 provider directories, does the selected artifact_identities comparison omit proof-relevant fields of SCALAR-FRAME-AUDIT.json, in particular scalar_operations?",
+  "scope_change_reason": "The portable-replay card allows one payload-field comparison. This audits that comparison on the selected generated_identity.py blob. It does not repair an interpreter mismatch and it does not edit the identity.",
+  "bottleneck_link": "Portable exact checks are how a later supplier replay can ignore container and timing bytes without also ignoring a scalar-operation count. This is a verifier gap on the current identity, not a new primitive budget.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after both committed providers, one non-timing scalar-audit field, the declared phase-seconds exclusion, one visible phase field, and one missing-file rejection. Do not rerun a cold supplier replay or edit the identity.",
+  "outcome": "completed",
+  "evidence": "python3 -B research/scalar-audit-identity-gap/verify.py prints PASS_SCALAR_AUDIT_IDENTITY_GAP providers=2 omitted_non_timing_fields=22. scalar_operations is absent from the seven identity inputs, and adding one leaves every returned identity unchanged.",
+  "author": "hevlyo",
+  "ai_assistance": "Substantial AI assistance was used to prepare this package. No coding-agent product is named.",
+  "open_questions": [
+    {
+      "question": "Does a one-field change to hyperplane_end_pairs in the committed ck WRAPPER-CHECKS.json also leave artifact_identities unchanged?",
+      "why_it_matters": "That file is in the #626 invoice artifact map and outside the same identity tuple, so the scalar-audit gap may not be the only dropped receipt.",
+      "first_step": "Copy the ck provider directory, increment hyperplane_end_pairs, and compare artifact_identities with the untouched directory.",
+      "blocked_by": "This package stops at SCALAR-FRAME-AUDIT.json. Putting either receipt into the selected identity would change pinned semantic hashes and is a separate supplier edit."
+    }
+  ]
+}
