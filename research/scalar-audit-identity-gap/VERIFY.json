@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/ck/CANONICAL-WORD.json.gz",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/ck/CLIFFORD-RECIPES.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/ck/CLIFFORD-REVIEW.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/ck/INDEPENDENT-LOCAL-REPLAY.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/ck/LOCAL-CHECKS.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/ck/LOCAL-PROGRAMS.json.gz",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/ck/RESIDUAL-ADAPTERS.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/ck/SCALAR-FRAME-AUDIT.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/jp8/CANONICAL-WORD.json.gz",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/jp8/CLIFFORD-RECIPES.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/jp8/CLIFFORD-REVIEW.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/jp8/INDEPENDENT-LOCAL-REPLAY.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/jp8/LOCAL-CHECKS.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/jp8/LOCAL-PROGRAMS.json.gz",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/jp8/RESIDUAL-ADAPTERS.json",
+    "research/community-k492-audit/pr626/replay/mixed-global/base/providers/jp8/SCALAR-FRAME-AUDIT.json",
+    "research/complex-sw4-frame8/code/generated_identity.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Both committed providers: scalar_operations is invisible to artifact_identities, phase seconds stays excluded, a phase frame edit is visible, and a missing canonical word is rejected."
+    }
+  ]
+}
