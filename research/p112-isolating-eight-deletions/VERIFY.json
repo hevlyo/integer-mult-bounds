@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "E8 frame second-moment identity, exhaustive size-8 transversal census, and the odd-prime rank sandwich for all 14 octet and 672 double-isolation kernels, plus the seven-subset, damaged-octet, and generic zero-excess controls."
+    }
+  ]
+}

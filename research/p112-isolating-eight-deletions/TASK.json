@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Which 8-subsets of P112 isolate a line in the live orthogonal-frame incidence, and what is the exact rational excess of the quadratic-extension kernel on each?",
+  "scope_change_reason": "The card asks whether a masked decoder improves the moment. This package does not synthesize a decoder. It classifies the isolating 8-subsets in the P112 frame incidence, which is the masked even-entry constraint at the first deletion depth where global quadratic extension fails. That is the constraint side of the card's masked-identity exclusion, narrowed to those subsets. The eight-term all-pairs search is not repeated.",
+  "bottleneck_link": "The complex side binds. Masked frame-sum constraints are the excluded class that could leave the trace-zero quadratic normal form and, if a fully charged decoder existed, lower the copy constant. The isolating census gives the exact kernel excess of every 8-deletion that frees a line. It is not itself a copy invoice or a kappa improvement.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the exhaustive isolating census and the rational kernel identification. Do not enumerate all C(112,8) subsets or nine-deletions in this session.",
+  "outcome": "completed",
+  "evidence": "verify.py reports PASS_P112_ISOLATING_EIGHT_DELETIONS with 14 octet kernels of excess 7 and 672 double-isolation kernels of excess 2. The odd-prime sandwich uses p=1000003. One seven-subset, one damaged octet, and one generic 8-set are controls. Discussion writes were forbidden by the integration token and were not retried.",
+  "author": "Riquelme Pereira",
+  "ai_assistance": "Substantial AI assistance with the census, the rank argument, the verifier, and the notes. No coding-agent product is named.",
+  "open_questions": [
+    {
+      "question": "Does any 8-subset of P112 that isolates no line have positive quadratic-extension excess?",
+      "why_it_matters": "A positive answer would add extension failures beyond the 686 isolating sets and could make the maximum eight-deletion excess larger than 7.",
+      "first_step": "Run the same odd-prime sandwich on one lex-minimal set of orbit representatives for the 8-subsets under the stabilizer of FRAME0.",
+      "blocked_by": "There are 475491062970 subsets. This session did not build a stabilizer-chain census."
+    },
+    {
+      "question": "What is the maximum quadratic-extension excess at nine deletions?",
+      "why_it_matters": "PR 5957 names nine as the injectivity limit of the quadratic span, so the excess can change there.",
+      "first_step": "Enumerate size-9 transversals of the same 1260 frames and apply the odd-prime sandwich.",
+      "blocked_by": "The size-8 shapes do not list the size-9 transversals, and the non-isolating gap is still open at size 8."
+    },
+    {
+      "question": "Does a double-isolation kernel of excess 2 yield a masked decoder whose fully charged copy cost is below 64?",
+      "why_it_matters": "That is the moment question on this card. Kernel excess alone does not change kappa.",
+      "first_step": "Convert one double-isolation 8-set and its two isolated lines into supports and price frames, restoration, and copied labels.",
+      "blocked_by": "No copy invoice is implied by the incidence kernel."
+    }
+  ]
+}
