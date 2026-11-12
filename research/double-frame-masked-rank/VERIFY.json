@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exhaustive census of 1260 double frames: cross-Gram N^T N = 4 I, masked rank identity via the separated matching, label ranks 8/6/4, share-4 graphs, 356608 matching terms, and five negative fixtures."
+    }
+  ]
+}

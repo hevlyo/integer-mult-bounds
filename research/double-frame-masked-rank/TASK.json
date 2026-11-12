@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the 16-line alphabet F0 union F1, for every second frame F1, what is the rank of a masked E-graph matrix and what label-pairing cost does a separated odd matching attain?",
+  "scope_change_reason": "The card asks whether one masked decoder improves the complete moment. The opening experiment is one finite support alphabet, tested before any network is built. The alphabet is the sixteen lines of a double frame, and the identity is the masked E-graph system rather than the proved eight-term all-pairs equation. No moment is computed because the rank and separated cost do not undercut the frame-pair term count.",
+  "bottleneck_link": "The complex side binds. A masked decoder that cut copied information on the frame-pair alphabet could raise that side's moment. The Schur bound shows the masked equations do not reduce the term count below 8 on these sixteen lines, and the separated matching still costs 16 label-pairing units. The label-rank drop on inadmissible frames is recorded so a later factorization can use it; it is not itself a paid-profile improvement.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the Schur identity, the separated matching cost, and the exhaustive 1260-frame label census. Do not search mixed factorizations for a cost below 16 in this session.",
+  "outcome": "negative-result",
+  "evidence": "python3 -B research/double-frame-masked-rank/verify.py prints PASS_DOUBLE_FRAME_MASKED_RANK frames=1260 types=896+336+28 label-ranks=8/6/4 matchings=356608 controls=5. PROOF.md contains the Schur argument. The eight-term all-pairs floor is not re-proved. A discussion post was not created: createDiscussion returned Resource not accessible by integration, and the write was not retried.",
+  "author": "research contributor",
+  "ai_assistance": "Substantial AI assistance was used to derive the Schur form, enumerate the frames, and write the checker. The assistance is disclosed without a product name.",
+  "open_questions": [
+    {
+      "question": "On one fixed frame of relative type (0, 16), (4, 12), is every complex factorization of the separated matching matrix of label-pairing cost at least 16?",
+      "why_it_matters": "That alphabet has label rank 4. A mixed factorization cheaper than the separated cost 16 would show that inadmissibility helps the masked relaxation; a matching lower bound would close the sixteen-line case.",
+      "first_step": "Restrict to the four label classes of one such frame and minimize the sum of pairing ranks over factorizations of I_8.",
+      "blocked_by": "Cross terms between label classes can cancel. This package only prices the separated matching, not every factorization."
+    }
+  ]
+}
