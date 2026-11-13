@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "independent-moment",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "independent-moment",
+    "question": "Can one selected pricing or assembly claim be checked by a genuinely independent exact implementation?",
+    "starting_points": [
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Reconstruct the rank ledger from original operations rather than trusting its aggregate.",
+      "Implement certified moment inequalities through a different exact enclosure method."
+    ],
+    "acceptance_gate": "Demonstrate independence, source binding, positive cases and semantic failure controls.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Record the selected certificate and complex_profile rather than taking a PR headline as input.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Recompute one small part of the ledger or one certified enclosure using an independent implementation.",
+    "bottleneck_link": "Independent pricing prevents unsupported frontier claims and can reveal genuine accounting slack.",
+    "allowed_variations": [
+      "Reconstruct either a source ledger or a numeric enclosure with a different method."
+    ],
+    "scope_change_triggers": [
+      "Importing the primary function and calling its output independent verification."
+    ],
+    "overlap_terms": [
+      "independent moment",
+      "rank histogram",
+      "exact enclosure"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independently enclose the selected gauge44/T16 complex histogram at its published native and conservative 10^-24 endpoints, and recompute the seven-step outer bootstrap, 10^18 kappa grid and 47 slacks from those rationals.",
+  "scope_change_reason": "The card also allows a word-level rank ledger. This package uses the allowed numeric-enclosure variation on the pinned aggregate and the published outer grid. It does not import the retained moment or outer engines, and it does not reconstruct counts from the scalar word.",
+  "bottleneck_link": "The complex endpoint is the binding supplier for the selected kappa. An independent sign check of that moment, and of the outer grid derived from it, is a prerequisite for treating the published saving as accounted.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the endpoint signs, kappa grid and 47 slacks match the selected assembly, or if the enclosure is too wide to decide a sign. Do not start a word replay or a new supplier.",
+  "outcome": "completed",
+  "evidence": "python3 -B scripts/research_package.py --package research/selected-complex-endpoint-enclosure prints PASS_SELECTED_COMPLEX_ENDPOINT_ENCLOSURE. Native and conservative upper/lower signs are strict, the recomputed kappa is 836330098538459/500000000000000000, and all 47 native and conservative slacks match ASSEMBLY.json.",
+  "author": "Donated research session",
+  "ai_assistance": "Substantial AI assistance. The assistant derived the series enclosure and wrote the verifier and notes. This is not an independent human review and not a proof-kernel check.",
+  "open_questions": [
+    {
+      "question": "Do these same series certify the published bit endpoint of the selected assembly, including its bad-residue surcharge?",
+      "why_it_matters": "The complex side binds kappa, so a bit-side accounting error would not move the headline, but the outer recurrence still takes the bit endpoint as an input.",
+      "first_step": "Apply this verifier's ln(1+z) and Taylor-exp bounds to the pinned PR589 nine-stage histogram at width 64 and compare the signs with the published bit residuals.",
+      "blocked_by": "ASSEMBLY.json records the bit endpoint and residuals, not the bit rank histogram. That histogram is outside the inputs pinned here."
+    },
+    {
+      "question": "Does the frozen T16 literal-window census emit this same histogram?",
+      "why_it_matters": "The moment check prices PLAN.json. It does not prove that the scalar word produces those counts.",
+      "first_step": "Run the frozen T16 window census in an isolated worktree against the checked native local word and compare its profile with PLAN.json.",
+      "blocked_by": "That replay needs the checked native artifact and is outside this package's registered time bound."
+    }
+  ]
+}
