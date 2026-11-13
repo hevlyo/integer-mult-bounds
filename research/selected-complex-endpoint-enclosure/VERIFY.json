@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Selected complex histogram endpoint signs by an independent ln(1+z) enclosure, exact outer bootstrap and 47 slacks, one-child fixtures, surcharge and extra-child rejections."
+    }
+  ]
+}
