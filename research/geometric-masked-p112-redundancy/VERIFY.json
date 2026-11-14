@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact rank of the 108 coordinate equations, unique solution 2I, rank-62 gap and two null witnesses after deleting the last coupling, one inconsistent right-hand side, all 6720 even and 5824 odd live pairs, and full even rank 64 modulo two primes."
+    }
+  ]
+}
