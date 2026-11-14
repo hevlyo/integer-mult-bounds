@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the 112-line complement of the coordinate frame F = {e_{2a} \u00b1 e_{2a+1} : a = 0,1,2,3}, does any complex bilinear Gram \u03c1^T M \u03c3 that matches 2<\u03c1, \u03c3> on even inner products differ from M = 2I, and do the odd pairs then still require cost-0 repairs?",
+  "scope_change_reason": "The card allows one masked family with exact labels and supports. The family is geometric normal evaluations on this single P112 complement. Odd exactness is the dropped hypothesis. Non-geometric coefficients and nine-column factorizations are not claimed, and the eight-term all-pairs search is not repeated.",
+  "bottleneck_link": "The binding complex supplier is priced from a decoder constant on a 112-port puncture. A geometric mask that produced a different M, or that required odd repairs with positive copied information, could change that constant. This family produces neither, so the mask alone does not improve the moment.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the even bilinear system on this P112 complement is solved and the odd-repair count is known. Do not search non-geometric supports or build a network in this session.",
+  "outcome": "negative-result",
+  "evidence": "PASS_GEOMETRIC_MASKED_P112_REDUNDANCY proof_equations=108 proof_rank=64 live=112 even_live=6720 odd_live=5824 repairs=0 full_even_rank_mod=64 controls=2. The unique Gram is 2I, so eight-column geometric decoders are all-pairs decoders and the 5824 odd live pairs need no repair.",
+  "author": "research session",
+  "ai_assistance": "Substantial AI assistance was used to derive the argument, write the verifier, and prepare the notes.",
+  "open_questions": [
+    {
+      "question": "Can nine or more columns factoring this same M = 2I have total label-pairing cost below the eight-column floor on this P112 set?",
+      "why_it_matters": "The redundancy result forces eight-column geometric masks back into the all-pairs theorem. An overcomplete factorization of the same Gram is the remaining geometric way to change copied information.",
+      "first_step": "Price one explicit nine-column factorization of 2I, with exact supports, including the repeated column.",
+      "blocked_by": "Support cost is not a function of M alone. Abstract nine-term floors in the discussion record are not this geometric factorization and are not replayed here."
+    },
+    {
+      "question": "Which punctures make the even bilinear system have a positive-dimensional solution space?",
+      "why_it_matters": "A nontrivial M would be the first geometric mask that is not an all-pairs decoder and could change supports.",
+      "first_step": "Delete one further orbit of coordinate lines and rerun the 64-column rank on the even equations.",
+      "blocked_by": "A kernel matrix still needs supports, frames, and restoration before it is a budget. This package stops at the rigid P112 complement."
+    }
+  ]
+}
