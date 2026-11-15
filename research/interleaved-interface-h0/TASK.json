@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "uniform-transfer-audit",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "uniform-transfer-audit",
+    "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "docs/audit.md"
+    ],
+    "methods": [
+      "Prove one missing implication with explicit quantified hypotheses.",
+      "Find an exact counterexample at the claimed interface boundary."
+    ],
+    "acceptance_gate": "Identify the proposition and what would change downstream; do not equate a finite replay with a universal proof.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected review scope and choose one exact all-size or precision implication.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write its quantified inputs and conclusion; find a missing hypothesis or construct a minimal exact adversarial instance.",
+    "bottleneck_link": "Finite supplier improvements are useful only under the retained transfer obligations.",
+    "allowed_variations": [
+      "Choose one tape, precision, hosting or restoration lemma."
+    ],
+    "scope_change_triggers": [
+      "Replacing a quantified obligation with another finite smoke test."
+    ],
+    "overlap_terms": [
+      "uniform transfer",
+      "all-size",
+      "precision"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Do the five named hypotheses H1-H5 of the interleaved scalar-interface lemma imply cleanup inversion for every finite XOR word, and which operand hypothesis repairs that implication?",
+  "scope_change_reason": "The card permits one restoration lemma instead of another finite supplier replay. The audited implication is the cleanup-inverse step in the pinned PR543 lemma, quantified over the XOR-gate model.",
+  "bottleneck_link": "Selected bit-supplier claims remain conditional on this interface lemma. H1-H5 alone do not give cleanup inversion; the selected checker enforces a stronger operand guard outside those five names, so the selected kappa and frontier stay in place.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the repaired F2 implication, the minimal self-source witness, and the stated finite domains. Do not replay the selected word or run frontier1094-verify.",
+  "outcome": "completed",
+  "evidence": "PASS_INTERLEAVED_INTERFACE_H0. H0z plus H1-H5 imply the block form and C=U^{-1}. The one-helper word A=(h^=h), B=(y^=x), C=(h^=h) satisfies H1-H5 and leaves the helper mask 0. Enumerations: 1507142, 343, 1755904 and 21296 words, with 208 named failures of cleanup inversion when the destination may lie in the source list.",
+  "author": "Riquelme Soares",
+  "ai_assistance": "Substantial AI assistance was used to draft the proof, the independent checker, and the package notes. This is not independent human review.",
+  "discussion_write": "FORBIDDEN on the single createDiscussion attempt (Resource not accessible by integration). Not retried. The finding is in this package and the pull request.",
+  "open_questions": [
+    {
+      "question": "Does the pinned lemma's final frame paragraph follow from one full frame and nested climbs, for every word satisfying H0z and H1-H5?",
+      "why_it_matters": "The F2 inverse does not make C a legal climb. The selected bit interface still cites that paragraph for frame legality.",
+      "first_step": "State the nesting hypotheses and test the single climb to the full frame on the pinned frame poset, without a new scalar search.",
+      "blocked_by": "This package does not load the E8 frame tables or the climb rule."
+    },
+    {
+      "question": "Does any transcribed formalization of this lemma assume only the five named hypotheses?",
+      "why_it_matters": "A formalization that omits H0z would either accept the self-source witness or hide the operand guard.",
+      "first_step": "Search the pinned formalization notes for the cleanup-inverse argument and compare their hypotheses with H0z.",
+      "blocked_by": "No Lean build or formalization replay was run in this session."
+    }
+  ]
+}
