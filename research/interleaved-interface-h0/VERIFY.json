@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/e8-bit-p111-tuned/code/xcheck_p.py",
+    "research/e8-bit-r420/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Repaired cleanup-inverse implication, self-source and shear witnesses, hand-checked non-involution, self-target H5 block, and four finite domains"
+    }
+  ]
+}
