@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-masked-decoder",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "complex-masked-decoder",
+    "question": "Can one specified masked or overcomplete decoder improve the complete moment budget?",
+    "starting_points": [
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md"
+    ],
+    "methods": [
+      "Synthesize a decoder with exact coefficients and fully priced helper endpoints.",
+      "Bound the best possible budget for a fixed support alphabet before synthesis."
+    ],
+    "acceptance_gate": "Change an assumption of the eight-term all-pairs bound and count all copied information, frames and restoration.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-decoder-field-extension-seed44/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_DECODER_FIELD_EXTENSION_S44",
+      "inspect": "Locate the excluded classes: masked identities, at least nine terms, and deeper punctures.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one finite support alphabet and test exact decoding constraints before building a whole network.",
+    "bottleneck_link": "A cheaper fully realized decoder could increase deficit or lower recursive cost on the binding complex side.",
+    "allowed_variations": [
+      "Select a specific masked or overcomplete family with exact labels and supports."
+    ],
+    "scope_change_triggers": [
+      "Repeating the exact eight-term all-pairs search inside its proved scope."
+    ],
+    "overlap_terms": [
+      "masked decoder",
+      "overcomplete",
+      "eight-term"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the pinned P112 coordinate matrix, can a real ten-term factorization that keeps the eight coordinate readers and adds two totals lower the pairing-rank sum below 64 when the correction sources are supported on at most three ports?",
+  "scope_change_reason": "The card allows one specified overcomplete family on a fixed support alphabet. This family is the real two-total extension of the eight coordinate readers, which p112-single-lift leaves open, cut at the sharp full-row absorption scale of three ports. It does not repeat the eight-term all-pairs search. Frames and restoration are not given a separate positive price because this copy-rank relaxation already stays at least 64.",
+  "bottleneck_link": "The complex side binds. A ten-term decoder that lowered the P112 coordinate copied-information charge could increase the complex deficit. This note shows that charge does not fall for real corrections supported on at most three ports, including every real full-row absorption. It is a scoped obstruction, not a new supplier.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once the plane census, the eight-reader cocircuit census, and the support-size corollary are certified, including the sharp three-row invoice and the failure controls. Do not search supports of size 4 or larger.",
+  "outcome": "negative-result",
+  "evidence": "All 6216 row pairs are independent and form exactly 896 three-point planes, with no four coplanar rows. Each of the eight readers has the same 255-form split histogram, and every rank-dropping deletion has size at least 24. The zero correction costs 64. The sharp three-port absorption costs 68. The predecessor rank and an independent column-wise rank agree. Controls reject a 23-port drop, a missed dependence, and a mutated Gram row.",
+  "author": "Riquelme Soares (@hevlyo)",
+  "ai_assistance": "Substantial AI assistance was used for the argument, the checkers, and the write-up.",
+  "open_questions": [
+    {
+      "question": "Can a real rank-2 correction supported on at least 24 ports make this same ten-term pairing-rank sum strictly less than 64?",
+      "why_it_matters": "Twenty-four is the first size at which a coordinate reader can lose pairing rank. A sum below 64 would be copy-rank headroom in the fixed-reader two-total family; a matching lower bound would extend the one-total theorem.",
+      "first_step": "Fix one explicit 24-port positive form on reader 0, cancel a second reader on a subset of that form, solve for (z, w), and recompute all ten pairing ranks with both rank implementations in this package.",
+      "blocked_by": "Cancelling three or more readers at one port overdetermines (z, w), and the shared extra terms are not bounded by the per-reader (7, 7) split. PR 2382 excludes a neighboring model through 47 ports, but that proof is not on this checkout and uses a different cancellation shape."
+    }
+  ]
+}

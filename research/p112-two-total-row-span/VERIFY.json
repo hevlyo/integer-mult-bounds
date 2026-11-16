@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-single-lift/geometry.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned geometry agreement, 896-plane census, 255-form cocircuit histogram, zero and sharp invoices, 23-port and Gram controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same census and controls with assertions stripped, using explicit exceptions"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-S",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Separate E8 builder and column-wise F2 rank: same plane count, cocircuit histogram, invoices and failure controls"
+    }
+  ]
+}
