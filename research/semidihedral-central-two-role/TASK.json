@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write a complete operation alphabet outside one named premise and price a baseline before searching identities.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "In F2 of the semidihedral group of order 16, with paid labels {r, r^{-1}, s} and all six rank-one idempotents on exactly two registers, the shortest call word for diag([r^4], [e]) is 4 and the shortest call word for diag([r^4], [r^4]) is 8.",
+  "scope_change_reason": "The card allows one specified nonabelian operation family. This package fixes the semidihedral presentation s r s = r^3, the three-label alphabet, width two, and the two central targets. It is not the abelian three-register model, and it is not the order-16 dihedral involution alphabet of discussion 1818.",
+  "bottleneck_link": "The complex primitive binds and the bit primitive does not. A shorter central word would still need a full supplier bill before it could move kappa. This alphabet's exact two-register bill equals the coordinate construction, so there is no local saving to price. The result is a scoped obstruction for this address family, not a headline exponent change.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the two-register radius-4 certificate. Do not continue to three registers once the radius-4 enumeration exceeds memory.",
+  "outcome": "completed",
+  "evidence": "PASS_SEMIDIHEDRAL_CENTRAL_TWO_ROLE one=4 two=8 ball4=25149 gates=18 layers=1,18,213,2276,22641 controls=6 no_new_kappa. Both Python -B and Python -O runs agree. The regular representation is faithful, and a separate group-algebra matrix checker agrees on every gate and on both witnesses. One upstream discussion write was forbidden (Resource not accessible by integration) and was not retried.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used for the overlap search, the exhaustive checker, and this write-up.",
+  "open_questions": [
+    {
+      "question": "Can one restored third register reduce diag([r^4], [r^4], [e]) below eight calls in this same semidihedral alphabet?",
+      "why_it_matters": "A third dirty register is the remaining way this address family could still beat the coordinate bill of eight.",
+      "first_step": "Stream a meet-in-the-middle: store hashes of the 231,812 radius-3 operators and test radius-4 predecessors of the target without retaining the radius-4 ball.",
+      "blocked_by": "A direct radius-4 enumeration was killed above 14 GB before a join existed."
+    },
+    {
+      "question": "Does every register count still need four paid calls per central copy?",
+      "why_it_matters": "A uniform lower bound would close the scratch-register question without another census and would match the shape of the order-2 commutator theorems.",
+      "first_step": "Decide whether the length-3 coefficient of epsilon^4 in F2[epsilon]/(epsilon^5) vanishes for every rank-one idempotent.",
+      "blocked_by": "The nested projector polynomials are not identically zero, and no rank-one cancellation identity was proved here."
+    }
+  ]
+}
