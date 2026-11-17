@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Group law, six idempotents, both witness families, faithful regular ball of radius 4, and six failure controls"
+    },
+    {
+      "argv": ["{python}", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Same certificate with assert statements removed by the optimizer; the checker does not rely on assert"
+    }
+  ]
+}
