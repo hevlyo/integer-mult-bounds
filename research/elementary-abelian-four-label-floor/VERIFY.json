@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": ["{python}", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "All 35 nonzero quadruples in (Z/2)^3: unit-gate construction, rank-one direct word, support bound, character rank lower bound, two algebra engines, and failure controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Same identity and controls with isolated imports and optimized bytecode, so the result does not depend on assertions stripped by optimization."
+    }
+  ]
+}
