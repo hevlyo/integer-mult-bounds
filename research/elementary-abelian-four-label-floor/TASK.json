@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "bit-new-register-model",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "bit-new-register-model",
+    "question": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
+    "starting_points": [
+      "research/bit-three-register-lower-bound/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Construct the smallest exact identity in a newly specified legal operation alphabet.",
+      "Derive a target-specific relaxation bound for that same explicit alphabet."
+    ],
+    "acceptance_gate": "Name the changed hypothesis, all counted roles and a uniform identity; finite column tests alone do not certify it.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read Model section 1 of the three-register bound and identify the exact excluded free operations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write a complete operation alphabet outside one named premise and price a baseline before searching identities.",
+    "bottleneck_link": "A small-width completed saving changes the bit primitive; a finite-address identity alone is insufficient.",
+    "allowed_variations": [
+      "Choose a fixed larger register count or a specified nonabelian operation family."
+    ],
+    "scope_change_triggers": [
+      "Remaining inside the already-excluded three-register abelian model."
+    ],
+    "overlap_terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "In the formal group algebra K[(Z/2)^3], for every set of four distinct nonzero addresses on four data registers, compare the unit paid-gate count with the rank-one gate count and the total projector rank, allowing finite workspace and fixed free scalar maps.",
+  "scope_change_reason": "The assigned card allows a larger register count outside the rational three-register model. Four data registers and the finite address group (Z/2)^3 replace M_3(Q) rank-one frames. This is the smallest width at which four distinct nonzero addresses can separate a unit-gate bill from a rank-one bill; the rational three-register theorem does not apply, and the three-label group-algebra cut does not decide four labels.",
+  "bottleneck_link": "Side result on the bit register interface, not a supplier admission. A three-gate word looks cheaper if every projector costs one, but every such word has total rank at least 5, while four rank-one coordinate gates cost total rank 4. Adopting the shorter word would not improve a rank-charged bit primitive. No selected moment or kappa changes.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the (Z/2)^3 four-address floor and its direct matching constructions. Do not search A4, extra generators, or a native supplier in this session.",
+  "outcome": "completed",
+  "evidence": "Self-contained support and character argument. The new comparison is that every three-gate word has total rank at least 5, so ranks (2,1,1) are impossible, while four rank-one gates have total rank 4. Checked on all 35 quadruples, 168 bases and 512 label triples in three algebras. Marker PASS_ELEMENTARY_ABELIAN_FOUR_LABEL_FLOOR.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used to derive the argument, write the verifier, and check the finite cases. Assistance is disclosed without naming a coding-agent product. One Discussion comment attempt was forbidden and was not retried.",
+  "open_questions": [
+    {
+      "question": "For four distinct non-identity elements of A4, is the rank-one gate count still four when every homomorphism to Z/2 is trivial?",
+      "why_it_matters": "The separation proved here uses a surjection onto (Z/2)^3. A4 is the smallest nonabelian group whose 2-abelianization is trivial, so a length-three rank-one word there would be real compression that this quotient cannot see.",
+      "first_step": "Fix four 3-cycles that lie in one ordered three-label subproduct set and test the coordinate normal form D(E_11, g) C1 D(E_11, h) C2 D(E_11, k) over F2 with a finite generating set of scalar maps, or find a C3-valued coefficient cut whose rank is at least 2.",
+      "blocked_by": "Free scalar maps are infinite. A finite normal form or a new quotient identity is required before an exhaustive search is a proof."
+    }
+  ]
+}
