@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/hyperplane-end-lean/HyperplaneEnd/Clifford.lean",
+    "research/hyperplane-end-lean/HyperplaneEnd/Exact.lean",
+    "research/hyperplane-end-lean/HyperplaneEnd/Labels.lean",
+    "research/hyperplane-end-lean/code/check_hpe_pairs.py",
+    "scripts/verify_hpe_lean_binding.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "C7 two-sided inverse on all 128 basis vectors, coefficient identity, seven involutions, and rejection of a same-sign square, a dropped qubit, and a non-involutive folded XOR"
+    }
+  ]
+}

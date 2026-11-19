@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "formal-interface-lemma",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "formal-interface-lemma",
+    "question": "Can one small, precisely scoped interface lemma be formalized with its actual hypotheses?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/hyperplane-end-lean/PROOF.md"
+    ],
+    "methods": [
+      "Formalize a missing boundary lemma identified by the selected review.",
+      "Audit a formal theorem-to-certificate binding independently."
+    ],
+    "acceptance_gate": "State the exact formalized proposition and remaining assumptions; avoid duplicate arithmetic formalizations already present.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the exact hypotheses in the hyperplane-end proof and distinguish Lean theorems from finite supplier assumptions.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "State one missing boundary lemma in full before starting a proof-assistant build.",
+    "bottleneck_link": "A missing interface proof can reduce the conditional gap even if it does not change kappa.",
+    "allowed_variations": [
+      "Narrow to one formal lemma or one theorem-to-certificate binding."
+    ],
+    "scope_change_triggers": [
+      "Formalizing already-covered arithmetic and claiming the full multiplication theorem."
+    ],
+    "overlap_terms": [
+      "hyperplane end",
+      "formal interface",
+      "Lean binding"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Prove that the selected hyperplane residual C7, defined only as a linear map on C^128, is a linear equivalence, so factor_iff_pre's invertible-residual hypothesis applies to hpe_word_exact. Do not reprove gL_adj or (N).",
+  "scope_change_reason": "The card allows one formal lemma or one theorem-to-certificate binding. factor_iff_pre already proves abstract cancellation for an invertible residual. The selected C7 is declared as a linear map, and the in-repo HPE checkers never mention it, so the converse is not bound to this residual.",
+  "bottleneck_link": "A wrong pre-wrapper is excluded by factor_iff_pre only when the residual is an equivalence. Discharging that hypothesis for the selected C7 closes one conditional gap in the hyperplane-end interface. It does not change the paid profile. The complex primitive remains binding, so kappa is unchanged.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the 128-dimensional residual and the pinned Lean definition lines. Do not run lake build, make frontier1094-verify, or an emitted-wrapper audit.",
+  "outcome": "completed",
+  "evidence": "PASS_HPE_C7_RESIDUAL_EQUIVALENCE. Both two-sided inverses hold on all 128 basis vectors. Same-sign square, missing qubit 0, and the Z/6 shift-4 XOR predicate are rejected. Lean kernel not run. One addDiscussionComment on discussion 1166 returned FORBIDDEN and was not retried.",
+  "author": "Riquelme Soares",
+  "ai_assistance": "Substantial AI assistance drafted the verifier, the lemma statement and the package notes. No coding-agent product is named. This is not an independent human review.",
+  "open_questions": [
+    {
+      "question": "Can cE (fourierC 7) be kernel-checked and passed to factor_iff_pre at one certified pair?",
+      "why_it_matters": "The finite inverse shows C7 is an automorphism, but the Lean converse still quantifies a LinearEquiv that hpe_word_exact does not supply.",
+      "first_step": "Prove cOk 128 (fourierC 7) = true by decide +kernel, set C7Equiv := cE (fourierC 7) that proof, and instantiate factor_iff_pre at pair1.",
+      "blocked_by": "This package did not run Lean 4.21 or Mathlib. Emitted pre-wrapper equality remains the separate discussion-2703 binding."
+    }
+  ]
+}
