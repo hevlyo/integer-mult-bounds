@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-k492-audit/pr622/replay/baseline558/complex-global/base/work/complex-nine-native/DATA-PHASES.json",
+    "research/complex-k492-owner-repair/vendor/multicold/vendor/pr558/vendor/pr552/complex-global/vendor535/inputs/ROUND20-PARENT-TEMPLATE.json.gz",
+    "research/complex-t16-rare-pattern-exchanges/PROFILE.json",
+    "research/complex-t16-rare-pattern-exchanges/data/OWNERS.json.gz",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json",
+    "research/complex-t16-rare-pattern-exchanges/data/SPEC.json",
+    "research/complex-t16-rare-pattern-exchanges/upstream1087.tar.gz",
+    "research/gauge44-slots-t16/code/audit_allcold.py",
+    "research/gauge44-slots-t16/data/UPSTREAM-PINS.json",
+    "research/gauge44-slots-t16/t16/indep16.py",
+    "research/t16-owner-audit-seed67/inputs/k8-seven-slot-word.json.gz",
+    "research/t16-owner-audit-seed67/verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pins the selected PR1094 owner map, phase file and PR1087 chart sources. Positive fixture: published X2, 69120 charts and the role audit pass. Failure fixture: one idle-suffix axis transplant is rejected by X2 and accepted by the role audit and rebuilt charts. A duplicate axis inside one hosted slice is rejected by the chart predicate."
+    }
+  ]
+}
