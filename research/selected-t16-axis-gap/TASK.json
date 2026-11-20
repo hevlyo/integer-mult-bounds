@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/owner-boundary-audit/verify.py"
+      ],
+      "expected": "PASS_PR626_NEXT_TOUCH_BOUNDARY_AUDIT",
+      "inspect": "Identify why the timing-only omission passes but the full production controller still rejects it.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one current supplier obligation and trace whether its acceptance depends on an independent check.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the selected PR1094 sixteen-replica owner map, cross-child pending-axis disjointness does not follow from the role audit or from the rebuilt port-basis chart predicate. The pinned phase file itself satisfies the obligation.",
+  "scope_change_reason": "The card allows one named current condition and a new semantic counterexample. The condition is X2 for the selected T16 map. The historical PR626 timing-only bridge omission is only the orientation example and is not reported as a current acceptance bug.",
+  "bottleneck_link": "The selected complex supplier is the binding side. Its idle-remainder accounting uses pending axes of distinct children on one physical family. A role or chart pass does not establish that separation, so a later packing change can keep a legal-looking chart while sharing an axis. No new kappa is claimed.",
+  "budget_minutes": 60,
+  "stop_rule": "One obligation, the published map, and one idle-suffix axis transplant. No parameter search and no selected cold replay.",
+  "outcome": "completed",
+  "evidence": "PASS_SELECTED_T16_AXIS_DISJOINTNESS_GAP. Published map: 2016 X2 checks pass, 69120 charts accept, 0 hosted-axis collisions, deficit 5120. Transplant of axis 2^49 from child 11 index 0 into child 10 index 0 at pair 3, side 1, port 0: X2 rejects, all 69120 rebuilt charts stay identical, role audit still accepts. Duplicate-inside-slice control rejects 16 charts. One discussion comment on 1166 was forbidden and was not retried. The selected cold replay was not run.",
+  "author": "hevlyo",
+  "ai_assistance": "Substantial AI assistance. The checks were executed locally. This is not an independent human review.",
+  "open_questions": [
+    {
+      "question": "Does the emitted idle-remainder frame export, or only the separate X2 scan, reject this same idle-suffix transplant when the phase hash pin is deliberately not used?",
+      "why_it_matters": "The selected replay hash-pins DATA-PHASES.json, so a substituted file fails closed before the semantic checks. That pin does not show whether the controller's remainder frames themselves enforce disjointness.",
+      "first_step": "Recompute only the literal idle-remainder tails for child 10 at port 0 from the transplanted axes and compare them with the tails from the pinned phase, without running make frontier1094-verify.",
+      "blocked_by": "The emitted GLOBAL-TEMPLATE and IDLE-REMAINDER-FRAMES are produced by the cold replay, which this package does not run."
+    }
+  ]
+}
