@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "independent-moment",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "independent-moment",
+    "question": "Can one selected pricing or assembly claim be checked by a genuinely independent exact implementation?",
+    "starting_points": [
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Reconstruct the rank ledger from original operations rather than trusting its aggregate.",
+      "Implement certified moment inequalities through a different exact enclosure method."
+    ],
+    "acceptance_gate": "Demonstrate independence, source binding, positive cases and semantic failure controls.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Record the selected certificate and complex_profile rather than taking a PR headline as input.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Recompute one small part of the ledger or one certified enclosure using an independent implementation.",
+    "bottleneck_link": "Independent pricing prevents unsupported frontier claims and can reveal genuine accounting slack.",
+    "allowed_variations": [
+      "Reconstruct either a source ledger or a numeric enclosure with a different method."
+    ],
+    "scope_change_triggers": [
+      "Importing the primary function and calling its output independent verification."
+    ],
+    "overlap_terms": [
+      "independent moment",
+      "rank histogram",
+      "exact enclosure"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "For the selected two-bank gauge44 histogram, recount the paid ranks from owner-role widths and window capacities, then enclose the gap between the first-order diagnostic D/E and the published native endpoint.",
+  "scope_change_reason": "The card allows one certified enclosure by a different method. Importing the retained moment engines is a stated scope-change trigger, and those engines already certify the endpoint sign. This package instead encloses the guide's first-order diagnostic on the recounted selected histogram. The 144-fold local profile is the declared provider histogram because the pinned canonical-word bytes are not a loose file in this checkout.",
+  "bottleneck_link": "The complex primitive binds. The linear diagnostic is the small-saving screen for that histogram; the exact gap shows how far that screen sits above the published endpoint, which is accounting slack in the screen rather than a new supplier saving.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after one source-bound enclosure of D/E minus the published endpoint, with the histogram recounted and four rejection controls. Do not start a moment-engine replay or a cold frontier replay.",
+  "outcome": "completed",
+  "evidence": "python3 -B research/selected-linear-diagnostic-gap/verify.py prints PASS_SELECTED_LINEAR_DIAGNOSTIC_GAP. The recounted histogram matches the selected complex profile. With 24 terms of the reduced logarithm series, 5128032946218/10^18 < D/E - a < 5128032946219/10^18 at the published native endpoint a. Navinor's PR #1293 already gave a decimal form of this diagnostic from the published aggregate; this package adds the role recount and the rational gap bracket. No new kappa.",
+  "author": "Independent verification session",
+  "ai_assistance": "Substantial AI assistance drafted the verifier, the rational logarithm bounds, and these notes. AI assistance is declared without a product name.",
+  "open_questions": [
+    {
+      "question": "Does the gauge44 local paid profile still equal the declared actual_paid_profile when the climb and center events of the pinned canonical word are counted directly?",
+      "why_it_matters": "The 144-fold part of the selected histogram is taken from that declared profile. A direct event count would remove the remaining aggregate.",
+      "first_step": "Count climb and center ranks in the canonical word whose SHA256 is 16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219, and in both orientations of its local programs.",
+      "blocked_by": "Those pinned bytes are not a loose file in this checkout. The gauge44-slots-t16 evidence/local copies have different hashes."
+    },
+    {
+      "question": "Can an enclosure other than the retained Mercator and base-two engines certify the moment sign of this recounted histogram at the published endpoint?",
+      "why_it_matters": "The first-order diagnostic overstates the feasible saving by about 5.128e-6. Only the exact moment decides acceptance.",
+      "first_step": "Enclose sum n_r (r/73)^(1-a) - 14336 at a = 67018507072324140917/40000000000000000000000 with an explicit remainder tighter than 10^-24.",
+      "blocked_by": "This package does not run that enclosure. The published residual is about 10^-24, so a coarser bound cannot separate the sign."
+    }
+  ]
+}
