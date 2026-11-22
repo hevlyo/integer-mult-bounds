@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/owner-boundary-audit/verify.py"
+      ],
+      "expected": "PASS_PR626_NEXT_TOUCH_BOUNDARY_AUDIT",
+      "inspect": "Identify why the timing-only omission passes but the full production controller still rejects it.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one current supplier obligation and trace whether its acceptance depends on an independent check.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the selected PR1094 T16 owner map, one-helper-per-physical-family does not follow from the per-route greedy spectator chart: every width-at-most-8 spectator list contains frame index 0, while a width-9 same-family pair has empty spectator lists, valid charts, and a repeated family.",
+  "scope_change_reason": "The card asks whether one selected supplier obligation follows from its source-bound checks. This names that obligation as family uniqueness on the published 69120-role map and compares it with the spectator-chart predicate. The PR626 timing-only diagnostic stays the orientation control and is not reported as a new acceptance bug.",
+  "bottleneck_link": "Family uniqueness is part of the selected complex supplier whole-call hosting contract. Separating it from the spectator chart shows which check still has to be paid before a width-9 co-hosting mechanism could be considered. This audit does not change kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the 112 port bases, all 48384 pending axes, the selected 69120 roles, and one width-9 witness pair. No packing search and no frontier1094 cold replay.",
+  "outcome": "negative-result",
+  "evidence": "python3 -B research/selected-width9-spectator-gap/verify.py prints PASS_SELECTED_WIDTH9_SPECTATOR_GAP. Witness family 672, child 8, port 0, offsets 0 and 9. The same command under python3 -O prints the identical receipt.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance was used to read the pinned sources, choose the obligation, and write the checker. No model or coding-agent product is named here.",
+  "open_questions": [
+    {
+      "question": "Can two width-9 helpers with disjoint pending blocks share one physical family for one invocation under the scalar residual contract?",
+      "why_it_matters": "The spectator chart accepts that pair and the owner rule rejects it. A scalar rejection would give uniqueness a lemma other than spectator collision. A scalar acceptance would mean the selected hosting rule is stricter than the chart.",
+      "first_step": "Evaluate the emitted [3, child, offset] route and the residual adapter on child 8, port 0, offsets 0 and 9, inside one invocation.",
+      "blocked_by": "The inherited whole-call hosting assumption and the emitter one-owner assertion. This package does not rebuild the controller."
+    }
+  ]
+}
