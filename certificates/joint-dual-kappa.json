@@ -842,7 +842,7 @@
     "scripts/experiments/pin_joint_dual_sources.py": "5d41535a73ad62fae7acb5365c5b7f40d7c99e52b6bc4266e44572018080acc5",
     "scripts/experiments/verify_joint_dual.py": "7a31bba1e9c0ded32ae285df2ca9bc91ef20c330f6789fdba361876f3c7a1985"
   },
-  "source_manifest_sha256": "e60f1f78c9729700ef9606a6576163de0b553792e5e8f24591dce5f51597158c",
+  "source_manifest_sha256": "a240ec681bb6b6a8e0aeb0df53c0a2a42270053647750aab873f6094a591f02d",
   "sources": [
     {
       "files": {
