@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "replay-runtime",
+  "priority_revision": 2,
+  "base_commit": "ce769385cca354c4ab5c1935e324ecc32bbf219a",
+  "original_card": {
+    "id": "replay-runtime",
+    "question": "Can one measured replay bottleneck be sped up without dropping coverage?",
+    "starting_points": [
+      "scripts/run_isolated_tests.py",
+      "scripts/verify_replay_coverage.py",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Profile one isolated replay and optimize the measured bottleneck.",
+      "Design source-bound reuse with explicit dependency invalidation and negative controls."
+    ],
+    "acceptance_gate": "Report before/after wall time on the same fixture, retained checks and invalidation behavior.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the selected reproduction command and choose a single replay stage for profiling.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Measure one unchanged fixture, preserve check coverage, and test one optimization with invalidation controls.",
+    "bottleneck_link": "Faster trustworthy replays increase review throughput and let mechanism candidates be checked sooner.",
+    "allowed_variations": [
+      "Profile one stage or design one source-bound cache boundary."
+    ],
+    "scope_change_triggers": [
+      "Skipping coverage or comparing different fixtures to claim speedup."
+    ],
+    "overlap_terms": [
+      "replay runtime",
+      "cache invalidation",
+      "isolated tests"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Speed up tests/test_joint_reclaim.py by parsing a cached JSON serialization of the pinned h=23 and h=25 joint-dual words instead of copy.deepcopy, without dropping its mutation, replay, prepare, or optimized-interpreter checks.",
+  "scope_change_reason": "The card asks for one measured replay bottleneck with retained coverage. The profiled isolated module was tests/test_joint_reclaim.py. Its time was dominated by deepcopy of those two words before each mutation replay. binary_frame_replay.py and binary_frame_profile_prepare.py are unchanged.",
+  "bottleneck_link": "This was the slowest single module in the isolated suite on this checkout. The same checks now finish in about 32s instead of 46s. The full suite makespan stayed about 73s, so the result is a faster module, not a faster suite wall. It does not change a supplier budget or kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "One module and one copy strategy. Stop after a measured improvement with the same mutation matrix, the alias control, and an updated joint-dual source pin. Do not edit the replay or prepare checkers in this session.",
+  "outcome": "completed",
+  "evidence": "Same command python3 -B -m unittest discover -s tests -p test_joint_reclaim.py -v. Before the edit, at assignment base ef5f39403610d231a0c27e8a6b4f08c10209bcd6: 16 tests in 45.679s. cProfile of that version attributed 94.350s of 125.323s profiled time to copy.deepcopy across 24 copies. After the edit: 17 tests in 31.381s and again in 31.820s. The extra test is the alias control. check_sources and compose passed. compose changed only certificates/joint-dual-kappa.json source_manifest_sha256. Kappa remains 4764513337/100000000000000. test_assembly_ceiling.py: 22 tests in 2.153s. Full isolated suite with --workers 4: 104 modules passed in 72.54s before and 72.95s after; suite makespan is not claimed as improved.",
+  "author": "Riquelme Soares (hevlyo)",
+  "ai_assistance": "Substantial AI assistance was used to profile the isolated test module, replace the word copy, and record the measurement.",
+  "open_questions": [
+    {
+      "question": "Can one inner loop of binary_frame_replay.replay on certificates/joint-dual-word-25.json.gz be made faster while keeping the histogram, scatter multiset, and both basis orientations?",
+      "why_it_matters": "After this copy change, the remaining time in the module is the unchanged replay and prepare work. Speeding that scan speeds this check directly. The full isolated-suite makespan also depends on other modules.",
+      "first_step": "Profile one replay call on the h=25 word alone, then change only the measured loop and regenerate research/joint-dual/SOURCE.json with scripts/experiments/pin_joint_dual_sources.py.",
+      "blocked_by": "binary_frame_replay.py is part of the joint-dual source freeze. This session did not change it, and a faster loop still has to match the stored replay receipt."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/joint-dual-kappa.json",
+    "certificates/joint-dual-word-23.json.gz",
+    "certificates/joint-dual-word-25.json.gz",
+    "research/joint-dual/SOURCE.json",
+    "tests/test_joint_reclaim.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Joint-dual source pins for the test and both words, unchanged conditional kappa, manifest hash, absence of deepcopy calls, and the full test_joint_reclaim module including the shared-list alias control."
+    }
+  ]
+}

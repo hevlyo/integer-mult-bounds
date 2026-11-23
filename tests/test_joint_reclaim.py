@@ -1,5 +1,4 @@
 """Physical and exact-arithmetic controls for the ranked-reclamation witness."""
-from copy import deepcopy
 from fractions import Fraction
 from pathlib import Path
 import gzip
@@ -23,11 +22,24 @@ class JointReclamationControls(unittest.TestCase):
     def setUpClass(cls):
         cls.words = {h: json.loads(gzip.decompress((ROOT/f'certificates/joint-dual-word-{h}.json.gz').read_bytes()))
                      for h in (23,25)}
+        # One compact serialization per pinned word. Each mutation parses it
+        # again, so the large ops/events/frames lists are not copied by deepcopy.
+        cls.serialized = {h: json.dumps(word, separators=(',', ':')) for h, word in cls.words.items()}
+
+    @classmethod
+    def tearDownClass(cls):
+        for h, original in cls.words.items():
+            if original != json.loads(cls.serialized[h]):
+                raise AssertionError('pinned joint-dual word was mutated: h=%s' % h)
+
+    def independent_word(self, h):
+        """Return a word whose containers are not shared with the pinned original."""
+        return json.loads(self.serialized[h])
 
     def reject_mutation(self, mutate, checker='both'):
-        for h, original in self.words.items():
+        for h in self.words:
             with self.subTest(h=h), tempfile.TemporaryDirectory() as directory:
-                changed = deepcopy(original)
+                changed = self.independent_word(h)
                 mutate(changed)
                 path = Path(directory)/'word.json'
                 path.write_text(json.dumps(changed, separators=(',', ':'))+'\n')
@@ -38,6 +50,33 @@ class JointReclamationControls(unittest.TestCase):
                         with self.subTest(checker=name):
                             with self.assertRaises((AssertionError, ValueError, IndexError, KeyError)):
                                 check()
+
+    def test_parsed_copy_does_not_alias_pinned_words(self):
+        # A shared ops list lets an inner write escape. A fresh parse must not.
+        for h, original in self.words.items():
+            with self.subTest(h=h):
+                cloned = self.independent_word(h)
+                self.assertEqual(cloned, original)
+                for key in ('ops', 'events', 'frames', 'scatter', 'outputs'):
+                    self.assertIsNot(cloned[key], original[key])
+                    self.assertIsNot(cloned[key][0], original[key][0])
+                self.assertIsNot(cloned['outputs'][0][3], original['outputs'][0][3])
+                self.assertIsNot(cloned['sources'], original['sources'])
+                shared = dict(cloned)
+                saved = shared['ops'][0][0]
+                shared['ops'][0][0] = saved + 1
+                self.assertEqual(cloned['ops'][0][0], saved + 1)
+                shared['ops'][0][0] = saved
+                fresh = self.independent_word(h)
+                fresh['ops'][0][1] += 1
+                fresh['events'][-1][2] += 1
+                fresh['outputs'][0][3][0] += 1
+                fresh['scatter'][0][1] += 1
+                fresh['frames'][0][1] += 1
+                fresh['sources']['0'] += 1
+                fresh['R'] += 1
+                self.assertEqual(cloned, original)
+                self.assertEqual(original, json.loads(self.serialized[h]))
 
     def test_selected_words_pass_independent_replay(self):
         recorded = json.loads((ROOT/'certificates/joint-dual-compiler.json').read_text())
@@ -107,9 +146,9 @@ class JointReclamationControls(unittest.TestCase):
 
     def test_scatter_order_preserves_the_complete_basis_receipt(self):
         recorded = json.loads((ROOT/'certificates/joint-dual-compiler.json').read_text())
-        for h, original in self.words.items():
+        for h in self.words:
             with self.subTest(h=h), tempfile.TemporaryDirectory() as directory:
-                changed = deepcopy(original)
+                changed = self.independent_word(h)
                 changed['scatter'].reverse()
                 path = Path(directory)/'word.json'
                 path.write_text(json.dumps(changed)+'\n')

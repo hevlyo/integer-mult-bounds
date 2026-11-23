@@ -50,7 +50,7 @@
     "scripts/experiments/joint_dual_reclaim_compiler.py": "9984aaccf880e4840402322d76678bfddb33ce7e494af78430a43429f51b85fd",
     "scripts/experiments/pin_joint_dual_sources.py": "5d41535a73ad62fae7acb5365c5b7f40d7c99e52b6bc4266e44572018080acc5",
     "scripts/experiments/verify_joint_dual.py": "7a31bba1e9c0ded32ae285df2ca9bc91ef20c330f6789fdba361876f3c7a1985",
-    "tests/test_joint_reclaim.py": "c4e2817bf6e699f462aa3c589ee45e24ab0dcad6bcdb6152ca2a1e16ac7bffeb"
+    "tests/test_joint_reclaim.py": "f24486d01ac1612b686d04bff3da68c5e2c07c87fd4f2f249182b91a41e7fcb0"
   },
   "producer_pr55_commit": "03e991aa79f9df1a935726213bb6a8631cd0d823",
   "scope": "Explicit reviewed source and finite-input freeze; arithmetic certificates and validation receipts are derived."
