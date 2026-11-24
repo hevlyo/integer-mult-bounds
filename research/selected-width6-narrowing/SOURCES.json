@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "files": [
+    {
+      "path": "certificates/selected-result.json",
+      "usage": "provenance",
+      "git_blob": "ae6a99f28aa468649eb66a361e764d769363bf11",
+      "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
+    },
+    {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "c05fafaa25ba95b2d5af86b1800427198e3d20eb",
+      "sha256": "89b5928bc92c81e2647b6d702a7ad85a6795b8f44e2eb267b2ff3145d8f2b2ce"
+    },
+    {
+      "path": "research/complex-k492-owner-repair/vendor/multicold/engines/moment.py",
+      "usage": "input",
+      "git_blob": "7d697cb45203fe72d97037403d6da41f71f3b7fd",
+      "sha256": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482"
+    },
+    {
+      "path": "research/complex-t16-rare-pattern-exchanges/data/SPEC.json",
+      "usage": "input",
+      "git_blob": "af013ccc2975d9d575d116f8a463cc947f220c8d",
+      "sha256": "8cb51f25a5da4a29d3783853025b73ff1f452429d4fdb30c599e598bcab0e71d"
+    },
+    {
+      "path": "research/gauge44-slots/data/PLAN.json",
+      "usage": "input",
+      "git_blob": "0465492a1f0a3c489a4cab13af9c78a0048a927a",
+      "sha256": "1dec4ca3af6d45d82286005cae4c5e56e7253adefb117d797da55c55c891af08"
+    },
+    {
+      "path": "research/heterogeneous-owner-assembly/CATALOGUE.json",
+      "usage": "input",
+      "git_blob": "c420f145bbc05c5c447e296cb79742f7a066b129",
+      "sha256": "8650a35d8292cf08711aac2d5d39e6e700010e6c7ce273b215e577c984b2ad07"
+    }
+  ]
+}
