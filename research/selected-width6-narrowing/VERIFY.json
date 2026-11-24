@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-k492-owner-repair/vendor/multicold/engines/moment.py",
+    "research/complex-t16-rare-pattern-exchanges/data/SPEC.json",
+    "research/gauge44-slots/data/PLAN.json",
+    "research/heterogeneous-owner-assembly/CATALOGUE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Selected width inventory, excess 1856, catalogue exclusion of width 6, three exact native roots, the 1/99 rejection, and failure controls for an extra rank-1 child, a deleted rank-48 child, a constant-mass width swap, and a broken excess."
+    }
+  ]
+}
