@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "persistent-boundary",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "persistent-boundary",
+    "question": "Can a specified pair of consecutive calls eliminate a restoration that the next call reconstructs?",
+    "starting_points": [
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Write typed entry/exit contracts and a contracting multitype recurrence.",
+      "Derive a lower bound for the compulsory transitions of one proposed typed interface."
+    ],
+    "acceptance_gate": "Show actual eliminated work and legal composition; changing a scalar recurrence into a matrix is insufficient.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Find a concrete consecutive-call boundary in the selected review and list its entry/exit obligations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Specify two call types and one operation actually removed by composition; derive the normalized recurrence.",
+    "bottleneck_link": "Eliminating compulsory boundary work can lower recursive cost beyond packing gains.",
+    "allowed_variations": [
+      "A two-type pilot or one explicit deferred restoration."
+    ],
+    "scope_change_triggers": [
+      "Rewriting the old scalar recurrence as a matrix without eliminating work."
+    ],
+    "overlap_terms": [
+      "persistent boundary",
+      "deferred restoration",
+      "multitype"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On each of the three pinned universal-connector schedules, the final source toggle is after every readout. Omitting that same toggle in two consecutive batches with disjoint outputs restores the shared connector and saves two source queries.",
+  "scope_change_reason": "The card allows one explicit deferred restoration. The selected T16 local-program bytes pinned by gauge44-slots-t16/data/PLAN.json are not in this checkout, and the checked-in evidence/local programs are a different historical word. The restoration checked here is the unread final source toggle of the pinned connector certificate.",
+  "bottleneck_link": "A boundary restoration the next call reconstructs can be removed from the joint contract. Here that removal saves two source queries and does not change a paid rank histogram or kappa. It is a typed interface saving, not a supplier improvement.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the three certificate schedules, the paired composition, and the stated failure controls. Do not census other source paths or run the selected cold replay.",
+  "outcome": "completed",
+  "evidence": "PASS_PAIRED_CONNECTOR_TAIL schedules=3 saved_per_pair=2 four_pair_queries=74 five_pair_queries=146 tails=[3, 4, 4]. Predecessor PASS_UNIVERSAL_CONNECTOR_BOUNDARY pairings=945 max_coverage=31 queries=74 leaves=182. Baseline PASS_RESEARCH_BASELINE_BINDINGS_ONLY. frontier1094-verify was not run. Discussion writes are absent from this session GitHub interface; no post was sent or retried.",
+  "author": "Donated research session",
+  "ai_assistance": "Substantial AI assistance was used for the algebra, the verifier, and the notes. No coding-agent product is named here. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Inside the same A/B alphabet, can two disjoint all-mask batches that must return the original connector save more than the two unread final toggles?",
+      "why_it_matters": "This package shows a saving of two queries against the published words. It does not show that 74 and 146 are the paired minima.",
+      "first_step": "Census length-11 source paths whose proper prefix boundaries cover every mask, then test whether two leftovers cancel.",
+      "blocked_by": "The predecessor 945-path census is only the even ten-toggle class, so it does not include these odd-length paths."
+    },
+    {
+      "question": "On the 62 orientation changes in the selected 144-call order, does a gauge44 center-row exit clear sit at the same frame as the next call entry clear?",
+      "why_it_matters": "That is the same deferred-restoration question on the binding supplier rather than on the connector certificate.",
+      "first_step": "Rebuild the slot-chain local program and compare center-clear frames along data/PLAN.json.",
+      "blocked_by": "The pinned provider canonical file 16bc0ebb and program hashes 071ecdac and f36c5831 are not in this checkout, and the slot chain was not run."
+    }
+  ]
+}
