@@ -10,11 +10,13 @@ Cold replay: `make frontier1094-verify`. This local review explicitly reuses the
 
 # Historical status through #1042
 
-# Current reviewed status
+# Historical reviewed status at #1042
+
+This section is the reviewed checkpoint named in the heading. The live selected record is the opening section of this file.
 
 Selected conditional κ: **0.001672188119205421**, Jeremy Kothe's #1042 on the mutable-leaver/slot chain, Rohan Arun's #987 slot search and Hao Yan's T16 controller. The bit side remains #589 on #555.
 
-[Review and individual credit](community-batch1047-review.md) · [Publication/CI receipt](community-batch1047-integration.json) · [Selected record](../../certificates/selected-result.json) · [PR ledger](pr-ledger.md).
+[Review and individual credit](community-batch1047-review.md) · [Publication/CI receipt](community-batch1047-integration.json) · [Checkpoint record](../../certificates/checkpoints/frontier1042.json) · [PR ledger](pr-ledger.md).
 
 Cold replay: `make frontier1042-verify`. Complete local finite construction and both exact moment engines pass, with source-bound retained ancestry reuse recorded. All-size/compiler, realization, hosting, precision/tape, analytic and bit-interface assumptions remain. Linux CI is separate; no complete Lean multiplication theorem is claimed.
 
@@ -22,13 +24,15 @@ The forty-PR batch integrates constructions, parallel audits, circuit candidates
 
 # Historical status through #942
 
-# Current reviewed status
+# Historical reviewed status at #942
+
+This section is the reviewed checkpoint named in the heading. The live selected record is the opening section of this file.
 
 Selected conditional κ: **0.001661960547713947**, Jonathan Capalbo's #942 T37
 composition of the #890/#869/#870/#858 lineage, with unchanged #589 on #555.
 [Review and credit](community-batch952-review.md) ·
 [Publication/CI receipt](community-batch952-integration.json) ·
-[Selected record](../../certificates/selected-result.json) · [PR ledger](pr-ledger.md).
+[Checkpoint record](../../certificates/checkpoints/frontier942.json) · [PR ledger](pr-ledger.md).
 Cold replay: `make frontier942-verify`.
 
 Seventeen of eighteen frozen PRs complete scoped review; #946 stays open
