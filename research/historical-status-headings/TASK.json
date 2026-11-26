@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task_id": "scope-navigation",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "scope-navigation",
+    "question": "Can one misleading historical-current claim or missing research cross-reference be corrected?",
+    "starting_points": [
+      "docs/research/current-status.md",
+      "docs/research/pr-ledger.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Trace one confusing path from onboarding to its authoritative source.",
+      "Index one tightly related family of obstructions with explicit excluded and open hypotheses."
+    ],
+    "acceptance_gate": "Produce evidence-backed navigation, preserve historical records and avoid a duplicate global survey.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Follow one link from the selected record to its review and compare a potentially stale historical claim.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Repair one confusing path or produce a scoped map of one related obstruction family.",
+    "bottleneck_link": "Clear navigation lowers entry cost for central research; a global survey without a concrete fix is not required.",
+    "allowed_variations": [
+      "One historical-current ambiguity or one bounded family index."
+    ],
+    "scope_change_triggers": [
+      "Rewriting frozen scientific packages just to change their historical wording."
+    ],
+    "overlap_terms": [
+      "current status",
+      "historical checkpoint",
+      "scope navigation"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Retitle the two blocks in docs/research/current-status.md that stay headed Current reviewed status after the #1042 and #942 historical dividers, and point each record link at the checkpoint whose decimal equals the stated kappa.",
+  "scope_change_reason": "The card allows one historical-current ambiguity. These are the only two blocks that still use the current heading while stating a kappa other than the live selected decimal. Later sections that are already titled superseded, and that still link the live selected record, stay unchanged.",
+  "bottleneck_link": "Preserved notes send readers to current-status.md for the authoritative bound. A second heading that says current, states the #1042 or #942 kappa, and links the live #1094 record mixes the binding frontier with a historical checkpoint. This repair does not change kappa.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop once those two blocks match their checkpoint decimals and the in-memory pre-repair text fails. Do not retarget the superseded sections in this package.",
+  "outcome": "partial",
+  "evidence": "scripts/research_baseline.py printed PASS_RESEARCH_BASELINE_BINDINGS_ONLY at selected decimal 0.001672660197076918. verify.py prints PASS_HISTORICAL_CURRENT_STATUS_HEADINGS. The #1042 prose decimal equals certificates/checkpoints/frontier1042.json (0.001672188119205421) and the #942 prose decimal equals certificates/checkpoints/frontier942.json (0.001661960547713947). In-memory copies that restore the two Current headings, point the repaired blocks back at the live selected record, swap the two checkpoint links, or replace the #1042 prose decimal with the live decimal are rejected. make frontier1094-verify was not run. Discussion writes are not in this session's GitHub interface, so no discussion post was sent and the write was not retried.",
+  "author": "Riquelme Soares (hevlyo)",
+  "ai_assistance": "Substantial AI assistance drafted the heading repair, the checker, and these notes.",
+  "open_questions": [
+    {
+      "question": "Can the #890 block in docs/research/current-status.md, which states decimal 0.001661957774647029 and still links certificates/selected-result.json, be pointed at certificates/checkpoints/frontier890.json without rewriting its historical review prose?",
+      "why_it_matters": "That block is titled superseded, but its selected-record link now opens the #1094 record. The same live link remains in the #799, #626, #617, #596 and #588 blocks, whose stated decimals match frontier799.json, k492626.json, cold617.json, hyperplane596.json and family588.json.",
+      "first_step": "Compare the #890 prose decimal with frontier890.json and replace only that section's selected-record link, then rerun a one-section form of this checker.",
+      "blocked_by": "This package stops at the two blocks that were still titled current. The superseded blocks are a separate edit, and earlier sections below #588 do not all have a matching checkpoint file."
+    }
+  ]
+}

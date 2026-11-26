@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/checkpoints/frontier1042.json",
+    "certificates/checkpoints/frontier942.json",
+    "certificates/selected-result.json",
+    "docs/research/current-status.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "The opening status heading matches the live selected decimal and record link. The #1042 and #942 blocks match their checkpoint decimals and checkpoint links. In-memory copies that restore the old current headings, restore the live selected-record links, swap the checkpoint links, or replace the #1042 prose decimal are rejected."
+    }
+  ]
+}
