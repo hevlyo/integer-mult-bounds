@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/complex-k492-owner-repair/vendor/multicold/engines/base_two_moment.py",
+    "research/complex-k492-owner-repair/vendor/multicold/engines/moment.py",
+    "research/complex-t16-rare-pattern-exchanges/data/OWNERS.json.gz",
+    "research/complex-t16-rare-pattern-exchanges/data/PLAN.json",
+    "research/complex-t16-rare-pattern-exchanges/data/SPEC.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Census of 61440 successive helper placements, exact port fill, selected endpoint signs on both moment engines, illegal rank-49 relaxation bracket, and seven rejection or ordering controls."
+    }
+  ]
+}
