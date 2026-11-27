@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "persistent-boundary",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "persistent-boundary",
+    "question": "Can a specified pair of consecutive calls eliminate a restoration that the next call reconstructs?",
+    "starting_points": [
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Write typed entry/exit contracts and a contracting multitype recurrence.",
+      "Derive a lower bound for the compulsory transitions of one proposed typed interface."
+    ],
+    "acceptance_gate": "Show actual eliminated work and legal composition; changing a scalar recurrence into a matrix is insufficient.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Find a concrete consecutive-call boundary in the selected review and list its entry/exit obligations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Specify two call types and one operation actually removed by composition; derive the normalized recurrence.",
+    "bottleneck_link": "Eliminating compulsory boundary work can lower recursive cost beyond packing gains.",
+    "allowed_variations": [
+      "A two-type pilot or one explicit deferred restoration."
+    ],
+    "scope_change_triggers": [
+      "Rewriting the old scalar recurrence as a matrix without eliminating work."
+    ],
+    "overlap_terms": [
+      "persistent boundary",
+      "deferred restoration",
+      "multitype"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the selected PR1094 T16 owner map, can the next stage placement of the same helper eliminate that helper's hosted-cell restoration, and can one rank-1 child per call move into a recorded idle remainder without growing the window?",
+  "scope_change_reason": "The card allows one explicit deferred restoration between two typed calls. The pair is fixed as successive stage placements of one helper on the selected 144-call gauge44 map. The rank-49 histogram is priced only as an out-of-contract relaxation.",
+  "bottleneck_link": "A restoration the next call already rewrites would remove paid children from the complex histogram. On this map the next stage misses the hosted cell, and every recorded port is exactly full, so that removal is not legal.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after every successive pair and every window port is counted and the one-coordinate relaxation has a certified complex-root bracket. Do not search a new owner map or retune the local word.",
+  "outcome": "negative-result",
+  "evidence": "PASS_SELECTED_STAGE_BOUNDARY helpers=7680 pairs=61440 same_port=41 shared_cells=0 full_ports=24730 idle_ports=7526 merges=144 capacity_increase=1 controls=7. Relaxed root lies strictly between 140580340963215187719634009/83886080000000000000000000000 and 281160681926430528027158643/167772160000000000000000000000 and is not admitted.",
+  "author": "AI-assisted research session",
+  "ai_assistance": "Substantial AI assistance drafted the census, the verifier and the note. No coding-agent product is named. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Does one FULL-cleanup gate in the selected local word already name coordinates that sit in the successor stage's recorded pending set?",
+      "why_it_matters": "Those coordinates would be a restoration the next stage could advance without growing a recorded window.",
+      "first_step": "Bind CANONICAL-WORD.json.gz at SPEC hash 4ddb29fb9bc6f27e0c0fbfcf19a2a93a3496ad900d0f6d89059d0305c9576c0c and compare one forward call's final cleanup with the next stage's pending axes.",
+      "blocked_by": "The file research/gauge44-slots/evidence/local/CANONICAL-WORD.json.gz hashes to 92941c2b718b533f1d3addb710d261a6e2b9ec5d19f0051d79775b08cb2571ed, not the SPEC hash."
+    },
+    {
+      "question": "For the 41 same-port successive pairs, does the shared idle remainder already charge a coordinate that both local cleanups also charge?",
+      "why_it_matters": "A double charge would be eliminable inside the recorded capacity, unlike the rank-49 relaxation.",
+      "first_step": "List the 41 (owner_replica, child, port, offset, width) rows and match them to the local cleanup gates.",
+      "blocked_by": "The same missing canonical word."
+    }
+  ]
+}
