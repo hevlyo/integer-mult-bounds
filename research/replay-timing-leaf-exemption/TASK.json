@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "portable-replay",
+  "priority_revision": 2,
+  "base_commit": "ef5f39403610d231a0c27e8a6b4f08c10209bcd6",
+  "original_card": {
+    "id": "portable-replay",
+    "question": "Can one reproducible environment or artifact-comparison failure be repaired?",
+    "starting_points": [
+      "research/gzip-container-reproducibility/README.md",
+      "docs/ci-verification.md"
+    ],
+    "methods": [
+      "Reproduce one portability failure and add a minimal cross-environment fix.",
+      "Audit one canonical-payload comparison for omitted proof-relevant fields."
+    ],
+    "acceptance_gate": "Preserve immutable source hashes and proof-relevant content; a different compressed byte stream alone is not a mathematical mismatch.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the gzip-container reproducibility examples and distinguish frozen source bytes from regenerated payloads.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Reproduce one specific mismatch or audit one canonical comparison for omitted proof-relevant fields.",
+    "bottleneck_link": "Portable exact checks prevent environment failures from blocking valid contributions.",
+    "allowed_variations": [
+      "One interpreter/version mismatch or one payload field comparison."
+    ],
+    "scope_change_triggers": [
+      "Removing immutable-source pins because generated compressed bytes differ."
+    ],
+    "overlap_terms": [
+      "gzip container",
+      "reproducibility",
+      "canonical payload"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Repair the #741 replay comparator so a timing exemption cannot hide a nested proof leaf or a non-numeric timing value, while gzip payload equality and nonnegative root or stage-list timing still match.",
+  "scope_change_reason": "The card allows one payload-field comparison. This keeps that comparison on research/complex741-parallel-replay/compare_replays.py and repairs the timing exemption. It does not remove an immutable source pin, change a supplier, or rerun the selected cold replay.",
+  "bottleneck_link": "A portable replay check that ignores a changed kappa nested under seconds can accept a non-equivalent complex supplier run. The complex side is the binding primitive, so a false replay match blocks review of a real supplier change.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after one repaired comparison, its predecessor fixture, and the existing #741 scheduler tests. Do not run make frontier1094-verify or make complex741-parallel-verify.",
+  "outcome": "completed",
+  "evidence": "PASS_REPLAY_TIMING_LEAF_EXEMPTION. The predecessor blob 6afb9d956f5012346ee16a08f94c69a63f1f453a accepts /seconds/kappa, /additional_evidence/seconds, and non-numeric timing values. The working comparator rejects those fixtures and still accepts gzip mtime differences plus nonnegative /seconds and /stages/0/seconds leaves.",
+  "author": "hevlyo",
+  "ai_assistance": "Substantial AI assistance was used to locate the comparison gap, draft the leaf rule, and write the fixtures and notes.",
+  "open_questions": [
+    {
+      "question": "Which root numeric seconds leaves in a real #741 work tree are wall-clock times, and which are proof counts that should not be exempt?",
+      "why_it_matters": "The repaired comparator still exempts every root or list-element seconds value that is a nonnegative finite number, on every JSON file. generated_identity.py drops only CLIFFORD-REVIEW.json's root seconds. A proof count stored at the root under that name would still compare as timing.",
+      "first_step": "On one saved pair of sequential and parallel #741 work trees, list every accepted timing path and the file that owns it.",
+      "blocked_by": "This checkout has no saved 304-file work tree. make complex741-parallel-verify was not run, and the historical comparison table was not rerun."
+    }
+  ]
+}

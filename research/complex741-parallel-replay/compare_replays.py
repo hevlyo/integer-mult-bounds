@@ -4,9 +4,12 @@
 Every file in either tree is compared as bytes, then (for .gz) as decompressed bytes,
 then (for JSON) structurally, with differences reported by JSON key path. A JSON
 difference is accepted only when
-  - its key path contains a timing key (TIMING), or
+  - its leaf key is a timing key (TIMING), both values are nonnegative finite real
+    numbers, and that leaf is at the JSON root or directly inside a list element, or
   - both values are SHA-256 digests of the same relative file in the respective trees,
     and that file is itself identical or accepted (checked to a fixed point).
+A proof leaf nested under a timing object, a timing key nested under another object,
+and a boolean, string, missing, negative, or non-finite timing value are not exempt.
 Logs (human-readable progress) must have the same number of lines; each differing line
 pair must agree in text and integers, may differ in decimal floats (elapsed times), and
 may differ in 64-hex tokens only as digests of the same accepted file. Exit status 0
@@ -16,6 +19,7 @@ import argparse
 import gzip
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 import sys
@@ -41,6 +45,27 @@ def diff(x, y, at=''):
     if isinstance(x, list) and isinstance(y, list) and len(x) == len(y):
         return [d for i, (a, b) in enumerate(zip(x, y)) for d in diff(a, b, f'{at}/{i}')]
     return [] if x == y else [(at or '/', x, y)]
+
+
+def nonnegative_real(value):
+    """True for 0, 1, and 1.5; false for bool, None, str, NaN, and infinity."""
+    return type(value) in (int, float) and math.isfinite(value) and value >= 0
+
+
+def timing_leaf(path, left, right):
+    """Wall-clock exemption for one nonnegative finite number.
+
+    `/seconds` and `/stages/0/seconds` qualify. `/seconds/kappa` and
+    `/additional_evidence/seconds` do not: the first is a proof leaf under a
+    timing object, and the second is a timing name nested under another object.
+    """
+    if not (isinstance(path, str) and path.startswith('/') and path.count('/') >= 1):
+        return False
+    leaf = path.rsplit('/', 1)[-1]
+    if leaf not in TIMING or not nonnegative_real(left) or not nonnegative_real(right):
+        return False
+    parent = path[:-(len(leaf) + 1)]
+    return parent == '' or parent.rsplit('/', 1)[-1].isdecimal()
 
 
 def index(root, files):
@@ -97,7 +122,7 @@ def compare(a, b):
         path, x, y = d
         if path == 'log':
             return line_ok(x, y)
-        if set(path.split('/')) & set(TIMING):
+        if timing_leaf(path, x, y):
             return True
         return isinstance(x, str) and isinstance(y, str) and same_file_digest(x, y)
 

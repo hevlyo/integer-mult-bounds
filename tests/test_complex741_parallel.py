@@ -137,6 +137,65 @@ class Compare(unittest.TestCase):
         r = self.compare('1/3')
         self.assertEqual(r['other'], {'RECEIPT.json': ['/artifacts/RESULT.json'], 'RESULT.json': ['/kappa']})
 
+    def pair(self, left, right):
+        import json
+        sys.path.insert(0, str(ROOT / 'research/complex741-parallel-replay'))
+        import compare_replays
+        with tempfile.TemporaryDirectory() as d:
+            for name, value in (('a', left), ('b', right)):
+                Path(d, name).mkdir()
+                Path(d, name, 'R.json').write_text(json.dumps(value), encoding='utf-8')
+            return compare_replays.compare(Path(d, 'a'), Path(d, 'b'))
+
+    def test_numeric_root_and_stage_timing_stay_accepted(self):
+        self.assertEqual(self.pair({'kappa': '1/2', 'seconds': 1},
+                                   {'kappa': '1/2', 'seconds': 2.5})['other'], {})
+        self.assertEqual(self.pair({'stages': [{'seconds': 0, 'exit_code': 0}]},
+                                   {'stages': [{'seconds': 3, 'exit_code': 0}]})['other'], {})
+        self.assertEqual(self.pair([{'name': 's', 'elapsed_seconds': 1}],
+                                   [{'name': 's', 'elapsed_seconds': 2}])['other'], {})
+
+    def test_nested_proof_and_non_numeric_timing_are_rejected(self):
+        hidden = self.pair({'seconds': {'kappa': '1/2', 'wall': 1.0}},
+                           {'seconds': {'kappa': '1/3', 'wall': 2.0}})
+        self.assertEqual(hidden['other'], {'R.json': ['/seconds/kappa', '/seconds/wall']})
+        replaced = self.pair({'kappa': '1/2', 'seconds': 1.0},
+                             {'kappa': '1/2', 'seconds': {'kappa': '9/10'}})
+        self.assertEqual(replaced['other'], {'R.json': ['/seconds']})
+        nested = self.pair({'additional_evidence': {'seconds': 1, 'rank': 4}},
+                           {'additional_evidence': {'seconds': 7, 'rank': 4}})
+        self.assertEqual(nested['other'], {'R.json': ['/additional_evidence/seconds']})
+        inserted = self.pair({'rank': 4}, {'rank': 4, 'seconds': 7})
+        self.assertEqual(inserted['other'], {'R.json': ['/seconds']})
+        for bad in (True, False, '1', float('nan'), -1):
+            report = self.pair({'seconds': 1.5}, {'seconds': bad})
+            self.assertEqual(report['other'], {'R.json': ['/seconds']}, bad)
+
+    def test_timing_only_digest_is_accepted_and_hidden_kappa_digest_is_not(self):
+        import hashlib
+        import json
+        sys.path.insert(0, str(ROOT / 'research/complex741-parallel-replay'))
+        import compare_replays
+
+        def trees(left_obj, right_obj):
+            left_raw = json.dumps(left_obj).encode()
+            right_raw = json.dumps(right_obj).encode()
+            with tempfile.TemporaryDirectory() as d:
+                for name, obj, raw in (('a', left_obj, left_raw), ('b', right_obj, right_raw)):
+                    root = Path(d, name)
+                    root.mkdir()
+                    (root / 'R.json').write_bytes(raw)
+                    (root / 'D.json').write_text(json.dumps({
+                        'log_sha256': hashlib.sha256(raw).hexdigest()}), encoding='utf-8')
+                return compare_replays.compare(Path(d, 'a'), Path(d, 'b'))
+
+        timing = trees({'kappa': '1/2', 'seconds': 1}, {'kappa': '1/2', 'seconds': 2})
+        self.assertEqual(timing['other'], {})
+        self.assertEqual(sorted(timing['accepted']), ['D.json', 'R.json'])
+        hidden = trees({'seconds': {'kappa': '1/2'}}, {'seconds': {'kappa': '1/3'}})
+        self.assertEqual(set(hidden['other']), {'D.json', 'R.json'})
+        self.assertIn('/seconds/kappa', hidden['other']['R.json'])
+
     def logs(self, a, b):
         import compare_replays
         with tempfile.TemporaryDirectory() as d:
