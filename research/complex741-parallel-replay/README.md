@@ -96,15 +96,21 @@ code could. Applying the same chain to the Linux stage times in the c290b7b rece
 | sequential vs `--jobs 3` | 235 | 49 | 20 | 0 |
 | `--jobs 8` vs `--jobs 3` | 233 | 50 | 21 | 0 |
 
-The rules are strict. A JSON difference is accepted only under a `seconds`/`elapsed_seconds`
-key, or when both values are SHA-256 digests of the same relative file in the two trees and
-that file is itself accepted (iterated to a fixed point; this covers `log_sha256`,
-`template_sha256`, receipts and the `CLIFFORD-REVIEW.json` chain). Logs must have the same
-number of lines; text and integers must agree, decimal floats (elapsed times) may differ,
-and 64-hex tokens only as digests of accepted files. Masking floats in logs is a real
-relaxation: a float printed only in a log would not be compared. The JSON outputs, which
-hold κ, counts, rejected-control lists and words, are compared without masking, and all
-generated words (`*.json.gz`) are byte-identical.
+The rules are strict. A JSON difference is accepted only when the leaf key is
+`seconds` or `elapsed_seconds`, both values are nonnegative finite real numbers (booleans
+excluded), and that leaf is at the JSON root or directly inside a list element, or when
+both values are SHA-256 digests of the same relative file in the two trees and that file
+is itself accepted (iterated to a fixed point; this covers `log_sha256`,
+`template_sha256`, receipts and the `CLIFFORD-REVIEW.json` chain). A proof leaf nested
+under a timing object, such as `/seconds/kappa`, and a timing name nested under another
+object, such as `/additional_evidence/seconds`, are compared. The previous exemption
+accepted any path containing those key names, which omitted those proof fields; the
+historical table above was produced under that previous rule and has not been rerun.
+Logs must have the same number of lines; text and integers must agree, decimal floats
+(elapsed times) may differ, and 64-hex tokens only as digests of accepted files. Masking
+floats in logs is a real relaxation: a float printed only in a log would not be compared.
+The JSON outputs, which hold κ, counts, rejected-control lists and words, are compared
+without masking, and all generated words (`*.json.gz`) are byte-identical.
 
 Negative control: in a copy of the `--jobs 8` tree, changing the last digit of κ in
 `global-replay/ASSEMBLY.json` and one integer in `notri56/cold44.log`

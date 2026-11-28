@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex741-parallel-replay/compare_replays.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Pinned predecessor accepts nested proof leaves and non-numeric timing values; the working comparator rejects those fixtures, accepts nonnegative root and stage-list timing, accepts gzip header differences, and keeps a digest exemption only for an explained timing-only file."
+    }
+  ]
+}
